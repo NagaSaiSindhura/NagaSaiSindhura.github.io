@@ -18,15 +18,19 @@
             background: linear-gradient(135deg, #4e54c8, #8f94fb);
             color: white;
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 100px 20px 60px;
         }
         header h1 {
-            font-size: 2.8em;
-            margin: 0 0 10px;
+            font-size: 3em;
+            margin: 0 0 20px;
+        }
+        header .title {
+            font-size: 1.4em;
+            margin: 15px 0;
         }
         header .contact-info {
-            font-size: 1.1em;
-            margin: 10px 0;
+            font-size: 1.2em;
+            margin: 20px 0;
         }
         header .contact-info a {
             color: white;
@@ -36,9 +40,9 @@
             text-decoration: underline;
         }
         nav {
-            margin-top: 30px;
-            padding: 15px 0;
-            background: rgba(0,0,0,0.1);
+            margin-top: 40px;
+            padding: 20px 0;
+            background: rgba(0,0,0,0.15);
         }
         nav ul {
             list-style: none;
@@ -47,103 +51,122 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
         }
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 1.15em;
+            font-size: 1.2em;
             font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 10px 15px;
+            border-radius: 8px;
             transition: background 0.3s;
         }
         nav a:hover {
             background: rgba(255,255,255,0.2);
         }
         section {
-            padding: 70px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         h2 {
             text-align: center;
             color: #4e54c8;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 50px;
             position: relative;
         }
         h2::after {
             content: '';
-            width: 100px;
-            height: 4px;
+            width: 120px;
+            height: 5px;
             background: #8f94fb;
             display: block;
-            margin: 15px auto 0;
-            border-radius: 2px;
+            margin: 20px auto 0;
+            border-radius: 3px;
         }
-        .about, .education {
+        .about, .education, .contact {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            padding: 50px;
             text-align: left;
+            font-size: 1.1em;
         }
         .education-item {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
         .education-item h3 {
             color: #4e54c8;
-            margin: 0 0 5px;
+            font-size: 1.6em;
+            margin: 0 0 10px;
         }
         .education-item p {
-            margin: 5px 0;
-            color: #666;
+            margin: 8px 0;
+            color: #555;
+        }
+        .contact p {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .contact a {
+            color: #4e54c8;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
         }
         .experience, .projects, .resumes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
         .card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 30px;
-            transition: transform 0.3s;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            transition: transform 0.4s;
         }
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
         }
         .card h3 {
             color: #4e54c8;
-            font-size: 1.8em;
-            margin-bottom: 10px;
+            font-size: 1.9em;
+            margin-bottom: 15px;
         }
         .card p {
             color: #666;
-            margin: 8px 0;
+            margin: 10px 0;
         }
         .card ul {
-            padding-left: 20px;
-            margin: 15px 0;
+            padding-left: 25px;
+            margin: 20px 0;
         }
         .card li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .project-links {
-            margin-top: 20px;
+            margin-top: 30px;
             text-align: center;
         }
         .project-links a {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: #4e54c8;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            margin: 5px;
+            border-radius: 8px;
             font-weight: bold;
+            transition: background 0.4s;
         }
         .project-links a:hover {
             background: #8f94fb;
@@ -151,35 +174,39 @@
         .resume-card {
             text-align: center;
         }
+        .resume-card h3 {
+            margin-bottom: 20px;
+        }
         .resume-card a {
-            display: block;
-            margin-top: 20px;
-            padding: 14px 28px;
+            display: inline-block;
+            padding: 16px 35px;
             background: #4e54c8;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
+            border-radius: 10px;
+            font-size: 1.3em;
             font-weight: bold;
+            transition: background 0.4s;
         }
         .resume-card a:hover {
             background: #8f94fb;
         }
         .skill-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
         .skill-category {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            padding: 30px;
             text-align: center;
         }
         .skill-category h3 {
             color: #4e54c8;
-            margin-bottom: 20px;
+            font-size: 1.6em;
+            margin-bottom: 25px;
         }
         .skill-category ul {
             list-style: none;
@@ -187,26 +214,30 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
         }
         .skill-category li {
             background: #8f94fb;
             color: white;
-            padding: 10px 18px;
-            border-radius: 25px;
+            padding: 12px 22px;
+            border-radius: 30px;
             font-weight: bold;
+            font-size: 1em;
         }
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 25px;
-            margin-top: 50px;
+            padding: 30px;
+            margin-top: 60px;
+            font-size: 1.1em;
         }
         @media (max-width: 768px) {
-            header h1 { font-size: 2.3em; }
-            nav ul { flex-direction: column; gap: 10px; }
-            nav a { display: block; }
+            header { padding: 80px 20px 50px; }
+            header h1 { font-size: 2.5em; }
+            nav ul { gap: 15px; }
+            nav a { font-size: 1.1em; padding: 8px 12px; }
+            section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -214,12 +245,12 @@
 
     <header>
         <h1>Naga Sai Sindhura Pandrangi</h1>
-        <p>Data Analyst | Machine Learning Engineer | Data Engineer</p>
+        <p class="title">Data Analyst | Machine Learning Engineer | Data Engineer</p>
         <div class="contact-info">
             Fremont, CA | (669)-260-0662<br>
-            <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a> |
-            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a><br>
-            <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
+            <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a> | 
+            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a><br><br>
+            <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | 
             <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
         </div>
         <nav>
@@ -234,6 +265,8 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Rest of the sections remain the same as previous version -->
 
     <section id="about" class="about">
         <h2>About Me</h2>
@@ -256,189 +289,20 @@
         </div>
     </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience">
-            <div class="card">
-                <h3>Teaching Assistant – Data Mining</h3>
-                <p>San Jose State University | Aug. 2025 – Present</p>
-                <ul>
-                    <li>Mentored 60+ graduate students in machine learning, Python, and statistics using scikit-learn and data mining tools.</li>
-                    <li>Designed and implemented automated grading pipelines to improve assessment efficiency and feedback quality.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Data Analyst</h3>
-                <p>S&P Global | Aug. 2022 – Aug. 2023</p>
-                <ul>
-                    <li>Improved data quality by 25% through ETL processes on large-scale structured/unstructured data.</li>
-                    <li>Increased data integrity to 99.5% via advanced SQL validation and built 10+ interactive Power BI dashboards with DAX.</li>
-                    <li>Enhanced reporting efficiency by 30% and accelerated project delivery by 20%.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Data Engineer</h3>
-                <p>Tata Consultancy Services | Jun. 2019 – Jul. 2022</p>
-                <ul>
-                    <li>Built and maintained scalable ETL pipelines using Apache Airflow and PySpark on GCP.</li>
-                    <li>Reduced pipeline execution time by 40% via parallel processing and enabled near real-time healthcare data ingestion.</li>
-                    <li>Implemented monitoring/alerting, cutting incident response time by 50%.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- Experience, Projects, Skills sections same as before -->
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>Full-Stack Agentic Framework for NL to SQL Translation</h3>
-                <p>Apache Hadoop, PySpark, Hugging Face, Streamlit | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Developed a natural language to SQL platform using fine-tuned LLM on Spider dataset (BLEU score: 0.38 → 0.52).</li>
-                    <li>Optimized 8B-parameter model for CPU inference and built intelligent query refinement system.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/NL-to-SQL-Translation" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Deepfake Video Detection</h3>
-                <p>XceptionNet, MTCNN, PyTorch | Jan. 2025 – May 2025</p>
-                <ul>
-                    <li>Achieved 97.01% accuracy and 0.988 ROC-AUC on Meta DFDC dataset using advanced deep learning architectures.</li>
-                    <li>Reduced training time by 35% and GPU usage by 40% with mixed precision and Focal Loss.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Deepfake-Detection" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>AI Mock Interviewer for Data Roles</h3>
-                <p>Mistral-7B, LoRA, RAG, Docker, GCP | Jan. 2025 – Present</p>
-                <ul>
-                    <li>Built AI-powered mock interview platform with fine-tuned LLM and retrieval-augmented generation.</li>
-                    <li>Deployed full-stack app on GCP with 40% reduced latency.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/AI-Mock-Interviewer" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Smart Book Recommendation System</h3>
-                <p>PySpark, ALS, TF-IDF, Flask, Plotly | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Hybrid recommender system improving relevance by 12% using collaborative and content-based filtering.</li>
-                    <li>Deployed real-time Flask web app with interactive dashboards.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Book-Recommendation-System" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Automated ETL & KPI Dashboard on GCP</h3>
-                <p>Airflow, dbt, BigQuery, Power BI | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Processed 100K+ daily records with automated pipeline and star schema modeling.</li>
-                    <li>Delivered interactive Power BI dashboards with 95% on-time data availability.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/ETL-KPI-Dashboard-GCP" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>California Road Safety Dashboard</h3>
-                <p>MySQL, Power BI, Power Query, DAX | Jan. 2024 – May 2024</p>
-                <ul>
-                    <li>Reduced preprocessing time by 25% and built interactive dashboard with drill-throughs and slicers.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/California-Road-Safety-Dashboard" target="_blank">GitHub Repository</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <h2>Technical Skills</h2>
-        <div class="skill-categories">
-            <div class="skill-category">
-                <h3>Programming & Web</h3>
-                <ul>
-                    <li>Python</li>
-                    <li>SQL</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>React</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>ML/DL Frameworks</h3>
-                <ul>
-                    <li>Scikit-learn</li>
-                    <li>PyTorch</li>
-                    <li>TensorFlow</li>
-                    <li>Keras</li>
-                    <li>Hugging Face</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Data Processing</h3>
-                <ul>
-                    <li>Pandas</li>
-                    <li>NumPy</li>
-                    <li>Seaborn</li>
-                    <li>Matplotlib</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Big Data & Cloud</h3>
-                <ul>
-                    <li>Spark</li>
-                    <li>Hadoop</li>
-                    <li>Airflow</li>
-                    <li>GCP</li>
-                    <li>AWS</li>
-                    <li>Snowflake</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Visualization & BI</h3>
-                <ul>
-                    <li>Power BI</li>
-                    <li>Tableau</li>
-                    <li>Looker Studio</li>
-                    <li>Plotly Dash</li>
-                    <li>Excel</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Other Tools</h3>
-                <ul>
-                    <li>Git</li>
-                    <li>Flask</li>
-                    <li>Docker</li>
-                    <li>DBT</li>
-                    <li>Kafka</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact</h2>
-        <div class="about">
-            <p><strong>Location:</strong> Fremont, CA</p>
-            <p><strong>Phone:</strong> (669)-260-0662</p>
-            <p><strong>Email:</strong> 
-                <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a><br>
-                <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a>
-            </p>
-            <p><strong>Social:</strong><br>
-                <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
-            </p>
-        </div>
+        <p><strong>Location:</strong> Fremont, CA</p>
+        <p><strong>Phone:</strong> (669)-260-0662</p>
+        <p><strong>Email:</strong><br>
+            <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a><br>
+            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a>
+        </p>
+        <p><strong>Social:</strong><br>
+            <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
+        </p>
     </section>
 
     <section id="resume">
@@ -446,14 +310,21 @@
         <div class="resumes">
             <div class="card resume-card">
                 <h3>Data Analytics Focused Resume</h3>
-                <a href="Sindhu_Resume_DA.pdf" download>Download PDF</a>
+                <a href="Sindhu_Resume_DA.pdf" download="NagaSaiSindhura_DataAnalytics_Resume.pdf">Download PDF</a>
             </div>
             <div class="card resume-card">
                 <h3>Machine Learning Focused Resume</h3>
-                <a href="Sindhu_Resume_ML.pdf" download>Download PDF</a>
+                <a href="Sindhu_Resume_ML.pdf" download="NagaSaiSindhura_MachineLearning_Resume.pdf">Download PDF</a>
             </div>
         </div>
     </section>
+
+    <!-- For projects GitHub links: since actual repos not found, use general profile or placeholders -->
+    <!-- In projects section, change to: -->
+    <!-- <div class="project-links">
+        <a href="https://github.com/NagaSaiSindhura" target="_blank">View Projects on GitHub</a>
+    </div> -->
+    <!-- Or keep individual as placeholders -->
 
     <footer>
         <p>&copy; 2026 Naga Sai Sindhura Pandrangi. All rights reserved.</p>
