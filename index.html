@@ -34,14 +34,76 @@
         .experience-item:hover, .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow); }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
         .role-tag { font-size: 0.95rem; color: var(--gray); font-style: italic; }
-        .skill-category { margin-bottom: 2rem; }
-        .skill-category h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1rem; }
-        .skills { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .skill-badge { background: var(--accent); color: #333; padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.95rem; border: 1px solid var(--primary); transition: background 0.3s, color 0.3s; }
-        .skill-badge:hover { background: var(--primary); color: white; }
+        
+        /* === UPDATED SKILLS SECTION STYLING === */
+        .skill-category {
+            margin-bottom: 3rem;
+        }
+        .skill-category h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 2px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: flex-start;
+            margin-top: 1rem;
+        }
+        .skill-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .skill-badge:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+            background: #0056b3;
+        }
+        /* Grid layout for skill categories – more balanced and modern */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            #skills .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-badge {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.95rem;
+            }
+            nav li { display: block; margin: 1rem 0; }
+            h1 { font-size: 2.5rem; }
+            section { padding: 3rem 1rem; }
+        }
+        
         ul { list-style-type: disc; padding-left: 1.5rem; }
         footer { background: var(--dark); color: white; text-align: center; padding: 3rem; }
-        @media (max-width: 768px) { nav li { display: block; margin: 1rem 0; } h1 { font-size: 2.5rem; } section { padding: 3rem 1rem; } }
     </style>
 </head>
 <body>
@@ -63,14 +125,12 @@
         <a href="https://github.com/NagaSaiSindhura" class="btn" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/sindhurapandrangi" class="btn" target="_blank">LinkedIn</a>
         <a href="mailto:sindhura.naga98@gmail.com" class="btn">Email Me</a>
-    
     </header>
 
     <section id="about">
         <h2>About Me</h2>
         <p>Master’s student in Data Analytics at San Jose State University (GPA: 3.8/4.0) with 4+ years of professional experience at S&P Global and Tata Consultancy Services, specializing in end-to-end data pipelines, business intelligence, machine learning, and AI-driven systems.</p>
         <p>Proven expertise in building scalable ETL workflows, cloud-based data infrastructure, and high-impact BI dashboards, alongside hands-on experience with LLMs, deep learning models, and real-world ML deployment. Passionate about transforming complex data into actionable insights that drive business decisions, operational efficiency, and innovation in AI-powered analytics.</p>
-        
     </section>
 
     <section id="experience" style="background: var(--accent);">
@@ -157,90 +217,99 @@
 
     <section id="skills" style="background: var(--accent);">
         <h2>Technical Skills</h2>
-        <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <div class="skills">
-                <span class="skill-badge">Python</span>
-                <span class="skill-badge">SQL</span>
-                <span class="skill-badge">HTML</span>
-                <span class="skill-badge">CSS</span>
-                <span class="skill-badge">React</span>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">HTML</span>
+                    <span class="skill-badge">CSS</span>
+                    <span class="skill-badge">React</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>Tools & Frameworks</h3>
-            <div class="skills">
-                <span class="skill-badge">Git</span>
-                <span class="skill-badge">Flask</span>
-                <span class="skill-badge">Streamlit</span>
-                <span class="skill-badge">Docker</span>
-                <span class="skill-badge">MongoDB</span>
-                <span class="skill-badge">Microsoft SQL Server</span>
-                <span class="skill-badge">MySQL</span>
+            
+            <div class="skill-category">
+                <h3>Tools & Frameworks</h3>
+                <div class="skills">
+                    <span class="skill-badge">Git</span>
+                    <span class="skill-badge">Flask</span>
+                    <span class="skill-badge">Streamlit</span>
+                    <span class="skill-badge">Docker</span>
+                    <span class="skill-badge">MongoDB</span>
+                    <span class="skill-badge">Microsoft SQL Server</span>
+                    <span class="skill-badge">MySQL</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>ML Libraries</h3>
-            <div class="skills">
-                <span class="skill-badge">Scikit-learn</span>
-                <span class="skill-badge">Pandas</span>
-                <span class="skill-badge">NumPy</span>
-                <span class="skill-badge">Seaborn</span>
-                <span class="skill-badge">Matplotlib</span>
+            
+            <div class="skill-category">
+                <h3>ML Libraries</h3>
+                <div class="skills">
+                    <span class="skill-badge">Scikit-learn</span>
+                    <span class="skill-badge">Pandas</span>
+                    <span class="skill-badge">NumPy</span>
+                    <span class="skill-badge">Seaborn</span>
+                    <span class="skill-badge">Matplotlib</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>Deep Learning</h3>
-            <div class="skills">
-                <span class="skill-badge">PyTorch</span>
-                <span class="skill-badge">TensorFlow</span>
-                <span class="skill-badge">Keras</span>
-                <span class="skill-badge">XceptionNet</span>
-                <span class="skill-badge">MTCNN</span>
-                <span class="skill-badge">LSTM/GRU</span>
-                <span class="skill-badge">Transformers</span>
+            
+            <div class="skill-category">
+                <h3>Deep Learning</h3>
+                <div class="skills">
+                    <span class="skill-badge">PyTorch</span>
+                    <span class="skill-badge">TensorFlow</span>
+                    <span class="skill-badge">Keras</span>
+                    <span class="skill-badge">XceptionNet</span>
+                    <span class="skill-badge">MTCNN</span>
+                    <span class="skill-badge">LSTM/GRU</span>
+                    <span class="skill-badge">Transformers</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>Gen AI & ML Concepts</h3>
-            <div class="skills">
-                <span class="skill-badge">LLMs</span>
-                <span class="skill-badge">RAG</span>
-                <span class="skill-badge">Fine-Tuning (LoRA)</span>
-                <span class="skill-badge">AI Agents</span>
-                <span class="skill-badge">Regression</span>
-                <span class="skill-badge">Classification</span>
-                <span class="skill-badge">Clustering</span>
-                <span class="skill-badge">Time Series Forecasting</span>
-                <span class="skill-badge">Feature Engineering</span>
-                <span class="skill-badge">A/B Testing</span>
-                <span class="skill-badge">Hypothesis Testing</span>
-                <span class="skill-badge">Statistical Inference</span>
+            
+            <div class="skill-category">
+                <h3>Gen AI & ML Concepts</h3>
+                <div class="skills">
+                    <span class="skill-badge">LLMs</span>
+                    <span class="skill-badge">RAG</span>
+                    <span class="skill-badge">Fine-Tuning (LoRA)</span>
+                    <span class="skill-badge">AI Agents</span>
+                    <span class="skill-badge">Regression</span>
+                    <span class="skill-badge">Classification</span>
+                    <span class="skill-badge">Clustering</span>
+                    <span class="skill-badge">Time Series Forecasting</span>
+                    <span class="skill-badge">Feature Engineering</span>
+                    <span class="skill-badge">A/B Testing</span>
+                    <span class="skill-badge">Hypothesis Testing</span>
+                    <span class="skill-badge">Statistical Inference</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>Data Visualization & BI</h3>
-            <div class="skills">
-                <span class="skill-badge">Tableau</span>
-                <span class="skill-badge">Power BI</span>
-                <span class="skill-badge">Looker Studio</span>
-                <span class="skill-badge">Plotly (Dash)</span>
-                <span class="skill-badge">Excel</span>
-                <span class="skill-badge">DAX</span>
+            
+            <div class="skill-category">
+                <h3>Data Visualization & BI</h3>
+                <div class="skills">
+                    <span class="skill-badge">Tableau</span>
+                    <span class="skill-badge">Power BI</span>
+                    <span class="skill-badge">Looker Studio</span>
+                    <span class="skill-badge">Plotly (Dash)</span>
+                    <span class="skill-badge">Excel</span>
+                    <span class="skill-badge">DAX</span>
+                </div>
             </div>
-        </div>
-        <div class="skill-category">
-            <h3>Big Data Analytics & Cloud</h3>
-            <div class="skills">
-                <span class="skill-badge">Spark (PySpark)</span>
-                <span class="skill-badge">Hadoop</span>
-                <span class="skill-badge">Apache Airflow</span>
-                <span class="skill-badge">DBT</span>
-                <span class="skill-badge">Kafka</span>
-                <span class="skill-badge">ETL Pipelines</span>
-                <span class="skill-badge">AWS (S3, Redshift, Athena, Glue)</span>
-                <span class="skill-badge">GCP (BigQuery)</span>
-                <span class="skill-badge">Snowflake</span>
+            
+            <div class="skill-category">
+                <h3>Big Data Analytics & Cloud</h3>
+                <div class="skills">
+                    <span class="skill-badge">Spark (PySpark)</span>
+                    <span class="skill-badge">Hadoop</span>
+                    <span class="skill-badge">Apache Airflow</span>
+                    <span class="skill-badge">DBT</span>
+                    <span class="skill-badge">Kafka</span>
+                    <span class="skill-badge">ETL Pipelines</span>
+                    <span class="skill-badge">AWS (S3, Redshift, Athena, Glue)</span>
+                    <span class="skill-badge">GCP (BigQuery)</span>
+                    <span class="skill-badge">Snowflake</span>
+                </div>
             </div>
         </div>
     </section>
