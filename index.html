@@ -7,234 +7,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0d6efd; /* Main blue */
-            --primary-dark: #0056b3;
-            --dark: #121212;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --accent: #ffffff;
-            --text-dark: #333;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, var(--primary), #6610f2);
+            --primary: #0d6efd; /* Blue accent */
+            --dark: #1a1a1a; /* Dark for nav/footer */
+            --light: #f8f9fa; /* Light background */
+            --gray: #6c757d; /* Subtle text */
+            --accent: #e9ecef; /* Soft gray for sections */
+            --shadow: rgba(0, 0, 0, 0.08); /* Soft shadow */
         }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: var(--light); 
-            color: var(--text-dark); 
-            line-height: 1.7; 
-        }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { color: var(--primary-dark); }
-
-        /* Navigation - Fixed top bar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: background 0.3s;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-        nav li {
-            display: inline-block;
-            margin: 0 1.8rem;
-        }
-        nav a {
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: color 0.3s;
-        }
-        nav a:hover, nav a.active {
-            color: var(--primary);
-        }
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-        nav a:hover::after, nav a.active::after {
-            width: 100%;
-        }
-
-        /* Hero / Home View */
-        #home {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: var(--gradient);
-            color: white;
-        }
-        #home .profile-photo {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 2rem;
-        }
-        #home h1 {
-            font-size: 3.5rem;
-            margin: 0.5rem 0;
-        }
-        #home .tagline {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-        #home .description {
-            font-size: 1.2rem;
-            max-width: 700px;
-            opacity: 0.85;
-        }
-
-        /* Content Sections - Hidden by default except home */
-        .content-section {
-            display: none;
-            padding: 6rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 100vh;
-        }
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.6s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* Cards */
-        .experience-item, .project-card {
-            background: white;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .experience-item:hover, .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2.5rem;
-        }
-        .role-tag {
-            font-size: 0.95rem;
-            color: var(--gray);
-            font-style: italic;
-        }
-
-        /* Skills Grid */
-        #skills .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 3rem;
-        }
-        .skill-category h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-        .skill-badge {
-            background: var(--primary);
-            color: white;
-            padding: 0.9rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(13,110,253,0.25);
-            transition: all 0.3s;
-        }
-        .skill-badge:hover {
-            transform: translateY(-5px) scale(1.05);
-            background: var(--primary-dark);
-            box-shadow: 0 10px 25px rgba(13,110,253,0.35);
-        }
-
-        /* Footer Contact */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        @media (max-width: 768px) {
-            #home h1 { font-size: 2.8rem; }
-            #home .tagline { font-size: 1.4rem; }
-            nav li { margin: 0 1rem; }
-            .content-section { padding: 5rem 1rem 3rem; }
-            h2 { font-size: 2.3rem; }
-        }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; line-height: 1.7; scroll-behavior: smooth; }
+        a { color: var(--primary); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #0056b3; text-decoration: underline; }
+        header { background: linear-gradient(135deg, var(--primary), #0056b3); color: white; text-align: center; padding: 6rem 2rem; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; }
+        nav { background: var(--dark); padding: 1.2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
+        nav li { display: inline-block; margin: 0 1.5rem; }
+        nav a { color: white; font-weight: 600; font-size: 1.1rem; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 3rem; margin: 0 0 1rem; }
+        h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.8rem; margin: 0 0 0.5rem; }
+        .hero p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 2rem; }
+        .btn { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 50px; margin: 0.8rem; font-weight: 600; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px var(--shadow); }
+        .experience-item, .project-card { background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 12px; box-shadow: 0 6px 20px var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+        .experience-item:hover, .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow); }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .role-tag { font-size: 0.95rem; color: var(--gray); font-style: italic; }
+        .skill-category { margin-bottom: 2rem; }
+        .skill-category h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1rem; }
+        .skills { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .skill-badge { background: var(--accent); color: #333; padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.95rem; border: 1px solid var(--primary); transition: background 0.3s, color 0.3s; }
+        .skill-badge:hover { background: var(--primary); color: white; }
+        ul { list-style-type: disc; padding-left: 1.5rem; }
+        footer { background: var(--dark); color: white; text-align: center; padding: 3rem; }
+        @media (max-width: 768px) { nav li { display: block; margin: 1rem 0; } h1 { font-size: 2.5rem; } section { padding: 3rem 1rem; } }
     </style>
 </head>
 <body>
-
     <nav>
         <ul>
-            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -244,82 +56,212 @@
         </ul>
     </nav>
 
-    <!-- Home / Hero Section -->
-    <section id="home" class="content-section active">
-        <img src="https://via.placeholder.com/220" alt="Naga Sai Sindhura Pandrangi" class="profile-photo"> <!-- Replace with your photo URL -->
+    <header>
         <h1>Naga Sai Sindhura Pandrangi</h1>
-        <p class="tagline">Data & AI Engineer</p>
-        <p class="description">Driving data-driven decisions by converting complex datasets into intelligent, production-ready AI solutions using advanced analytics, machine learning, deep learning, and generative AI.</p>
-    </section>
+        <p>Data & AI Engineer | Fremont, CA</p>
+        <p>Transforming complex data into actionable insights and innovative AI solutions. Expertise in Data Engineering, Analytics, Machine Learning, Deep Learning, Data Science, and Generative AI.</p>
+        <a href="https://github.com/NagaSaiSindhura" class="btn" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/sindhurapandrangi" class="btn" target="_blank">LinkedIn</a>
+        <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu" class="btn">Email Me</a>
+        <a href="Sindhu_Resume_ML.pdf" class="btn" download>Download Resume (ML Focus)</a>
+        <a href="Sindhu_Resume_DA.pdf" class="btn" download>Download Resume (DA Focus)</a>
+    </header>
 
-    <!-- Other Sections -->
-    <section id="about" class="content-section">
+    <section id="about">
         <h2>About Me</h2>
-        <p>Master’s student in Data Analytics at San Jose State University (GPA: 3.8/4.0) with 4+ years of professional experience at S&P Global and Tata Consultancy Services, specializing in end-to-end data pipelines, business intelligence, machine learning, and AI-driven systems.</p>
-        <p>Proven expertise in building scalable ETL workflows, cloud-based data infrastructure, and high-impact BI dashboards, alongside hands-on experience with LLMs, deep learning models, and real-world ML deployment. Passionate about transforming complex data into actionable insights that drive business decisions, operational efficiency, and innovation in AI-powered analytics.</p>
+        <p>I'm a passionate Data & AI Engineer currently pursuing a Master's in Data Analytics at San Jose State University (GPA: 3.8/4.0, expected Dec 2025). With a strong foundation in Electronics & Communication Engineering from JNTUH, India (GPA: 3.6/4.0), I bring over 4 years of professional experience in data engineering, analysis, and advanced AI/ML development.</p>
+        <p>My work focuses on building scalable ETL pipelines, interactive dashboards, and cutting-edge models like LLMs and deepfake detectors. I'm driven to solve real-world problems through data-driven innovation, excelling in roles as Data Analyst, Data Engineer, ML Engineer, DL Engineer, Data Scientist, and Gen AI Engineer.</p>
     </section>
 
-    <section id="experience" class="content-section">
+    <section id="experience" style="background: var(--accent);">
         <h2>Professional Experience</h2>
-        <!-- Your experience items here (same as before) -->
         <div class="experience-item">
             <h3>Teaching Assistant – Data Mining | San Jose State University <span class="role-tag">(Data Science Educator & ML Mentor)</span></h3>
-            <p><strong>Aug 2025 – Dec 2025</strong></p>
+            <p><strong>Aug 2025 – Present</strong></p>
             <ul>
-                <li>Mentored 60+ graduate students in machine learning, Python, statistics, and data mining...</li>
-                <!-- Keep the rest -->
+                <li>Mentored 60+ graduate students in machine learning, Python, statistics, and data mining, providing hands-on guidance in scikit-learn and real-world applications.</li>
+                <li>Engineered automated grading pipelines that streamlined assessments, elevated feedback quality, and improved student learning outcomes.</li>
             </ul>
         </div>
-        <!-- Add the other two experience items similarly -->
-    </section>
-
-    <section id="projects" class="content-section">
-        <h2>Key Projects</h2>
-        <!-- Your projects content here -->
-    </section>
-
-    <section id="skills" class="content-section">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <!-- Your skill categories here (same as previous updated version) -->
+        <div class="experience-item">
+            <h3>Data Analyst | S&P Global <span class="role-tag">(Data Analyst & BI Specialist)</span></h3>
+            <p><strong>Aug 2022 – Aug 2023</strong></p>
+            <ul>
+                <li>Extracted, transformed, and loaded large-scale structured and unstructured data into centralized warehouses, improving data quality by 25% and enabling faster KPI-driven business intelligence.</li>
+                <li>Performed data validation and cleansing using advanced SQL, increasing data integrity to 99.5%, reducing report errors in live dashboards, and optimizing complex queries for efficiency.</li>
+                <li>Built 10+ interactive Power BI dashboards with DAX for KPI visualization, improving reporting efficiency by 30%, enabling real-time monitoring, and accelerating project delivery by 20%.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Data Engineer | Tata Consultancy Services <span class="role-tag">(Data Engineer & ETL Expert)</span></h3>
+            <p><strong>Jun 2019 – Jul 2022</strong></p>
+            <ul>
+                <li>Constructed and maintained scalable ETL pipelines with Apache Airflow and PySpark on GCP, managing ingestion from multiple sources into BigQuery and GCP Buckets for optimized storage and high-volume processing.</li>
+                <li>Refactored workflows for parallel processing, reducing pipeline execution time by 40%, improving data accuracy with advanced SQL transformations, and enabling near real-time healthcare data ingestion via Spark Streaming.</li>
+                <li>Introduced monitoring and alerting within Airflow pipelines, reducing incident response time by 50%, while partnering with analysts to fine-tune data warehouses for seamless Power BI dashboard integration and KPI tracking.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="education" class="content-section">
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <h3>Major Projects</h3>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Full-Stack Agentic Framework for NL to SQL Translation <span class="role-tag">(Gen AI & Data Scientist)</span></h3>
+                <p>Developed a Streamlit-based platform using Hugging Face LLM fine-tuned on the Spider dataset, boosting BLEU score from 0.38 to 0.52. Enabled schema exploration, query generation, and interactive Plotly visual analytics.</p>
+                <p>Optimized an 8B-parameter model for efficient CPU inference, cutting costs and latency, while building an intelligent query refinement system that improved SQL accuracy and user experience.</p>
+                <p><strong>Tech:</strong> Apache Hadoop, PySpark, Plotly, Hugging Face Transformers, Streamlit</p>
+                <a href="https://github.com/NagaSaiSindhura/full-stack-agentic-framework" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>Deepfake Video Detection <span class="role-tag">(DL & ML Engineer)</span></h3>
+                <p>Built a detection system leveraging XceptionNet, ResNet-Swish-BiLSTM, and Swiss Residual Blocks, attaining 97.01% accuracy and 0.988 ROC-AUC on Meta DFDC dataset.</p>
+                <p>Applied Focal Loss to manage class imbalance and used MTCNN for precise face localization. Accelerated training with PyTorch mixed precision, reducing compute time by 35% and GPU usage by 40%.</p>
+                <p><strong>Tech:</strong> XceptionNet, MTCNN, PyTorch, Keras</p>
+                <a href="https://github.com/NagaSaiSindhura/deepfake-detection" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>AI Mock Interviewer for Data Analyst/Data Scientist <span class="role-tag">(Gen AI Engineer)</span></h3>
+                <p>Built an AI-powered mock interview platform leveraging Mistral-7B with LoRA fine-tuning on 4,500+ Q&As and a RAG pipeline for role-specific question generation and structured candidate feedback; evaluated with BLEU and ROUGE metrics.</p>
+                <p>Engineered end-to-end system with scalable cloud deployment (Docker, GCP), reducing latency by 40%; developed full-stack web app and analytics dashboard, integrating ML/DL workflows for real-time feedback in data science interviews.</p>
+                <p><strong>Tech:</strong> LLMs, Fine-Tuning, RAG, Docker, GCP, Flask</p>
+                <a href="https://github.com/NagaSaiSindhura/ai-mock-interviewer" target="_blank">View on GitHub →</a>
+            </div>
+        </div>
+        <h3>Minor Projects</h3>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Smart Book Recommendation System <span class="role-tag">(ML Engineer)</span></h3>
+                <p>Developed a hybrid book recommendation engine using ALS matrix factorization and TF-IDF for collaborative and content-based filtering, improving recommendation relevance by 12%.</p>
+                <p>Utilized PySpark for real-time data processing, created Plotly dashboards for user behavior insights, and deployed the system via a Flask web app for live recommendations.</p>
+                <p><strong>Tech:</strong> Apache Hadoop, PySpark, Plotly, Flask</p>
+                <a href="https://github.com/NagaSaiSindhura/smart-book-recommendation" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>Automated ETL & KPI Dashboard on GCP <span class="role-tag">(Data Engineer)</span></h3>
+                <p>Engineered an ETL pipeline with Apache Airflow and dbt to process 100K+ daily records from the New York Times dataset, streamlining ingestion, transformation, and loading into the data warehouse.</p>
+                <p>Published Power BI dashboards connected to BigQuery using a star schema model, ensuring 95% on-time data delivery and enabling interactive KPI tracking.</p>
+                <p><strong>Tech:</strong> Apache Airflow, Star Schema, BigQuery, Power BI, dbt</p>
+                <a href="https://github.com/NagaSaiSindhura/automated-etl-dashboard" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>California Road Safety Dashboard <span class="role-tag">(Data Analyst)</span></h3>
+                <p>Performed end-to-end analysis of traffic accident data using MySQL and Power Query for data extraction and transformation, reducing preprocessing time by 25%.</p>
+                <p>Crafted a Power BI dashboard with DAX-based KPIs, drill-throughs, and slicers by time, location, and severity. Leveraged Power Pivot to model data and define relationships for accurate, responsive reporting.</p>
+                <p><strong>Tech:</strong> MySQL, Microsoft Power BI, Power Query, DAX</p>
+                <a href="https://github.com/NagaSaiSindhura/california-road-safety" target="_blank">View on GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background: var(--accent);">
+        <h2>Technical Skills</h2>
+        <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skills">
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">SQL</span>
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">React</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Tools & Frameworks</h3>
+            <div class="skills">
+                <span class="skill-badge">Git</span>
+                <span class="skill-badge">Flask</span>
+                <span class="skill-badge">Streamlit</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">MongoDB</span>
+                <span class="skill-badge">Microsoft SQL Server</span>
+                <span class="skill-badge">MySQL</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>ML Libraries</h3>
+            <div class="skills">
+                <span class="skill-badge">Scikit-learn</span>
+                <span class="skill-badge">Pandas</span>
+                <span class="skill-badge">NumPy</span>
+                <span class="skill-badge">Seaborn</span>
+                <span class="skill-badge">Matplotlib</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Deep Learning</h3>
+            <div class="skills">
+                <span class="skill-badge">PyTorch</span>
+                <span class="skill-badge">TensorFlow</span>
+                <span class="skill-badge">Keras</span>
+                <span class="skill-badge">XceptionNet</span>
+                <span class="skill-badge">MTCNN</span>
+                <span class="skill-badge">LSTM/GRU</span>
+                <span class="skill-badge">Transformers</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Gen AI & ML Concepts</h3>
+            <div class="skills">
+                <span class="skill-badge">LLMs</span>
+                <span class="skill-badge">RAG</span>
+                <span class="skill-badge">Fine-Tuning (LoRA)</span>
+                <span class="skill-badge">AI Agents</span>
+                <span class="skill-badge">Regression</span>
+                <span class="skill-badge">Classification</span>
+                <span class="skill-badge">Clustering</span>
+                <span class="skill-badge">Time Series Forecasting</span>
+                <span class="skill-badge">Feature Engineering</span>
+                <span class="skill-badge">A/B Testing</span>
+                <span class="skill-badge">Hypothesis Testing</span>
+                <span class="skill-badge">Statistical Inference</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Data Visualization & BI</h3>
+            <div class="skills">
+                <span class="skill-badge">Tableau</span>
+                <span class="skill-badge">Power BI</span>
+                <span class="skill-badge">Looker Studio</span>
+                <span class="skill-badge">Plotly (Dash)</span>
+                <span class="skill-badge">Excel</span>
+                <span class="skill-badge">DAX</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Big Data Analytics & Cloud</h3>
+            <div class="skills">
+                <span class="skill-badge">Spark (PySpark)</span>
+                <span class="skill-badge">Hadoop</span>
+                <span class="skill-badge">Apache Airflow</span>
+                <span class="skill-badge">DBT</span>
+                <span class="skill-badge">Kafka</span>
+                <span class="skill-badge">ETL Pipelines</span>
+                <span class="skill-badge">AWS (S3, Redshift, Athena, Glue)</span>
+                <span class="skill-badge">GCP (BigQuery)</span>
+                <span class="skill-badge">Snowflake</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background: white;">
         <h2>Education</h2>
-        <!-- Your education items -->
+        <div class="experience-item">
+            <h3>San Jose State University</h3>
+            <p><strong>Master of Science in Data Analytics | Jan 2024 – Dec 2025 | GPA: 3.8/4.0</strong></p>
+            <p>Relevant Coursework: Machine Learning, Data Visualization, Statistical Analysis, Data Warehousing, Big Data Analytics</p>
+        </div>
+        <div class="experience-item">
+            <h3>JNTUH, India</h3>
+            <p><strong>Bachelor of Technology, Electronics & Communication Engineering | May 2015 – May 2019 | GPA: 3.6/4.0</strong></p>
+        </div>
     </section>
 
-    <section id="contact" class="content-section">
-        <footer>
-            <h2>Contact Me</h2>
-            <p>&copy; 2026 Naga Sai Sindhura Pandrangi | Fremont, CA | (669)-260-0662 | nagasaisindhura.pandrangi@sjsu.edu</p>
-            <p><a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a></p>
-        </footer>
-    </section>
-
-    <script>
-        // Simple tab-like navigation
-        const navLinks = document.querySelectorAll('nav a');
-        const sections = document.querySelectorAll('.content-section');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-
-                // Update active section
-                sections.forEach(sec => sec.classList.remove('active'));
-                document.getElementById(targetId).classList.add('active');
-
-                // Update active nav link
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-
-                // Scroll to top for better UX in tab mode
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+    <footer id="contact">
+        <h2>Contact Me</h2>
+        <p>&copy; 2026 Naga Sai Sindhura Pandrangi | Fremont, CA | (669)-260-0662 | nagasaisindhura.pandrangi@sjsu.edu</p>
+        <p><a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a></p>
+    </footer>
 </body>
 </html>
