@@ -1,131 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naga Sai Sindhura Pandrangi | Data Analyst & ML Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #007bff;
-            --dark: #222;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-        }
-        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; line-height: 1.6; }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        header { background: var(--primary); color: white; text-align: center; padding: 4rem 1rem; }
-        nav { background: var(--dark); padding: 1rem; position: sticky; top: 0; z-index: 100; }
-        nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
-        nav li { display: inline; margin: 0 1rem; }
-        nav a { color: white; font-weight: 500; }
-        section { padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; }
-        h1, h2 { font-weight: 700; }
-        h1 { font-size: 2.5rem; margin: 0; }
-        .hero p { font-size: 1.2rem; margin: 1rem 0; }
-        .btn { display: inline-block; background: white; color: var(--primary); padding: 0.8rem 1.5rem; border-radius: 5px; margin: 0.5rem; font-weight: bold; }
-        .skills { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
-        .skill-badge { background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 30px; font-size: 0.9rem; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .project-card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .project-card h3 { margin-top: 0; color: var(--primary); }
-        footer { background: var(--dark); color: white; text-align: center; padding: 2rem; }
-        @media (max-width: 768px) { nav li { display: block; margin: 0.5rem 0; } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naga Sai Sindhura Pandrangi | Data Analytics & ML</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --dark: #1f2933;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--light);
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: linear-gradient(135deg, #0d6efd, #2563eb);
+      color: white;
+      text-align: center;
+      padding: 4.5rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 0.6rem auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .btn-group {
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.4rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background: #e5e7eb;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 1rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+    .experience-card {
+      background: var(--card);
+      padding: 1.8rem;
+      border-radius: 10px;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .experience-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .experience-card span {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .experience-card p {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      padding: 1.6rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .skill-badge {
+      background: var(--primary);
+      color: white;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #93c5fd;
+      margin: 0 0.5rem;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      header h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <header>
-        <h1>Naga Sai Sindhura Pandrangi</h1>
-        <p>Data Analyst & Machine Learning Engineer | Fremont, CA</p>
-        <p>Transforming data into insights with Python, SQL, Power BI, PyTorch, and Cloud Technologies</p>
-        <a href="https://github.com/NagaSaiSindhura" class="btn" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/sindhurapandrangi" class="btn" target="_blank">LinkedIn</a>
-        <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu" class="btn">Email Me</a>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-container">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Master's in Data Analytics student at San Jose State University (GPA: 3.8/4.0, expected Dec 2025). Experienced in building scalable ETL pipelines, interactive dashboards, and advanced ML models including LLMs and deep learning.</p>
-        <p>Passionate about leveraging data engineering and machine learning to solve real-world problems in analytics and AI.</p>
-    </section>
+<!-- HERO -->
+<header>
+  <h1>Naga Sai Sindhura Pandrangi</h1>
+  <p>Data Analytics & Machine Learning Graduate | Ex-S&P Global, TCS</p>
+  <p>Turning complex data into high-impact insights and intelligent AI solutions</p>
 
-    <section id="experience" style="background: white;">
-        <h2>Experience</h2>
-        <h3>Teaching Assistant – Data Mining | San Jose State University <span style="color:var(--gray);">(Aug 2025 – Present)</span></h3>
-        <ul>
-            <li>Mentored 60+ graduate students in machine learning, Python, scikit-learn, and data mining.</li>
-            <li>Engineered automated grading pipelines to streamline assessments.</li>
-        </ul>
+  <div class="btn-group">
+    <a class="btn" href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a>
+    <a class="btn" href="mailto:nagasaisindhura.pandrangi@sjsu.edu">Email</a>
+  </div>
+</header>
 
-        <h3>Data Analyst | S&P Global <span style="color:var(--gray);">(Aug 2022 – Aug 2023)</span></h3>
-        <ul>
-            <li>Improved data quality by 25% through ETL processes and built 10+ Power BI dashboards, boosting reporting efficiency by 30%.</li>
-        </ul>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+    Master’s student in Data Analytics at San Jose State University (GPA 3.8/4.0) with professional experience at
+    S&P Global and Tata Consultancy Services. Skilled in building scalable ETL pipelines, analytics platforms,
+    machine learning models, and AI-driven applications using cloud technologies.
+  </p>
+</section>
 
-        <h3>Data Engineer | Tata Consultancy Services <span style="color:var(--gray);">(Jun 2019 – Jul 2022)</span></h3>
-        <ul>
-            <li>Built scalable ETL pipelines with Airflow and PySpark on GCP, reducing execution time by 40%.</li>
-        </ul>
-    </section>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Full-Stack NL to SQL Translation</h3>
-                <p>Fine-tuned Hugging Face LLM on Spider dataset (BLEU ↑ from 0.38 to 0.52). Streamlit app with Plotly visuals.</p>
-                <p><strong>Tech:</strong> PySpark, Hugging Face, Streamlit, Plotly</p>
-                <a href="https://github.com/NagaSaiSindhura" target="_blank">View on GitHub →</a>
-            </div>
-            <div class="project-card">
-                <h3>Deepfake Video Detection</h3>
-                <p>Achieved 97.01% accuracy on DFDC dataset using XceptionNet and PyTorch mixed precision.</p>
-                <p><strong>Tech:</strong> PyTorch, MTCNN, Focal Loss</p>
-                <a href="https://github.com/NagaSaiSindhura" target="_blank">View on GitHub →</a>
-            </div>
-            <div class="project-card">
-                <h3>AI Mock Interviewer</h3>
-                <p>Mistral-7B with LoRA fine-tuning and RAG. Full-stack app on GCP/Docker.</p>
-                <p><strong>Tech:</strong> LLMs, RAG, Docker, GCP</p>
-                <a href="https://github.com/NagaSaiSindhura" target="_blank">View on GitHub →</a>
-            </div>
-            <!-- Add more projects similarly -->
-        </div>
-    </section>
+  <div class="experience-card">
+    <h3>Teaching Assistant – Data Mining <span>| SJSU (Aug 2025 – Present)</span></h3>
+    <p>Mentoring 60+ graduate students in machine learning, Python, and data mining while building automated
+       grading workflows to improve assessment efficiency and feedback quality.</p>
+  </div>
 
-    <section id="skills" style="background: white;">
-        <h2>Technical Skills</h2>
-        <div class="skills">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">PyTorch</span>
-            <span class="skill-badge">TensorFlow</span>
-            <span class="skill-badge">Scikit-learn</span>
-            <span class="skill-badge">SQL</span>
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">Tableau</span>
-            <span class="skill-badge">GCP</span>
-            <span class="skill-badge">AWS</span>
-            <span class="skill-badge">Airflow</span>
-            <span class="skill-badge">Spark</span>
-            <span class="skill-badge">LLMs & RAG</span>
-            <span class="skill-badge">Git</span>
-        </div>
-    </section>
+  <div class="experience-card">
+    <h3>Data Analyst <span>| S&P Global (Aug 2022 – Aug 2023)</span></h3>
+    <p>Delivered analytics-ready datasets and KPI-driven Power BI dashboards by designing ETL workflows,
+       optimizing SQL queries, and improving data quality by 25%, enabling faster business decision-making.</p>
+  </div>
 
-    <footer id="contact">
-        <p>&copy; 2026 Naga Sai Sindhura Pandrangi | (669)-260-0662 | nagasaisindhura.pandrangi@sjsu.edu</p>
-        <p><a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a></p>
-    </footer>
+  <div class="experience-card">
+    <h3>Data Engineer <span>| Tata Consultancy Services (Jun 2019 – Jul 2022)</span></h3>
+    <p>Built and optimized distributed ETL pipelines using Airflow and PySpark on GCP, reducing pipeline
+       runtimes by 40% and enabling near real-time healthcare analytics.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>NL → SQL Agentic Framework</h3>
+      <p>Fine-tuned LLM on Spider dataset, improving BLEU score to 0.52. Built Streamlit UI with Plotly analytics.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Deepfake Video Detection</h3>
+      <p>Achieved 97.01% accuracy using XceptionNet and PyTorch mixed precision on DFDC dataset.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>AI Mock Interviewer</h3>
+      <p>LLM-powered interview system using Mistral-7B, RAG, Docker, and GCP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <span class="skill-badge">Python</span>
+    <span class="skill-badge">SQL</span>
+    <span class="skill-badge">PyTorch</span>
+    <span class="skill-badge">LLMs & RAG</span>
+    <span class="skill-badge">Power BI</span>
+    <span class="skill-badge">Airflow</span>
+    <span class="skill-badge">Spark</span>
+    <span class="skill-badge">AWS</span>
+    <span class="skill-badge">GCP</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <p>© 2026 Naga Sai Sindhura Pandrangi | Fremont, CA</p>
+  <p>
+    <a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
+    <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
+  </p>
+</footer>
+
 </body>
 </html>
