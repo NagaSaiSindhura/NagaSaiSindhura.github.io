@@ -18,40 +18,51 @@
             background: linear-gradient(135deg, #4e54c8, #8f94fb);
             color: white;
             text-align: center;
-            padding: 100px 20px;
-            position: relative;
+            padding: 80px 20px 60px;
         }
         header h1 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 2.8em;
+            margin: 0 0 10px;
         }
-        header p {
-            font-size: 1.2em;
+        header .contact-info {
+            font-size: 1.1em;
             margin: 10px 0;
         }
-        header a {
+        header .contact-info a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
         }
-        header a:hover {
+        header .contact-info a:hover {
             text-decoration: underline;
         }
         nav {
-            margin-top: 20px;
+            margin-top: 30px;
+            padding: 15px 0;
+            background: rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
+            font-size: 1.15em;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            background: rgba(255,255,255,0.2);
         }
         section {
-            padding: 60px 20px;
+            padding: 70px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -59,7 +70,7 @@
             text-align: center;
             color: #4e54c8;
             font-size: 2.5em;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
         }
         h2::after {
@@ -68,28 +79,38 @@
             height: 4px;
             background: #8f94fb;
             display: block;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
             border-radius: 2px;
         }
-        .about {
+        .about, .education {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             padding: 40px;
-            text-align: center;
+            text-align: left;
+        }
+        .education-item {
+            margin-bottom: 30px;
+        }
+        .education-item h3 {
+            color: #4e54c8;
+            margin: 0 0 5px;
+        }
+        .education-item p {
+            margin: 5px 0;
+            color: #666;
         }
         .experience, .projects, .resumes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             padding: 30px;
-            transition: transform 0.3s ease;
-            text-align: left;
+            transition: transform 0.3s;
         }
         .card:hover {
             transform: translateY(-10px);
@@ -100,14 +121,12 @@
             margin-bottom: 10px;
         }
         .card p {
-            font-size: 1em;
             color: #666;
-            margin: 5px 0;
+            margin: 8px 0;
         }
         .card ul {
-            list-style-type: disc;
             padding-left: 20px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
         .card li {
             margin-bottom: 10px;
@@ -118,13 +137,13 @@
         }
         .project-links a {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: #4e54c8;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             margin: 5px;
-            font-size: 0.95em;
+            font-weight: bold;
         }
         .project-links a:hover {
             background: #8f94fb;
@@ -133,15 +152,15 @@
             text-align: center;
         }
         .resume-card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 24px;
+            display: block;
+            margin-top: 20px;
+            padding: 14px 28px;
             background: #4e54c8;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            transition: background 0.3s;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
         }
         .resume-card a:hover {
             background: #8f94fb;
@@ -153,14 +172,14 @@
         }
         .skill-category {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 20px;
+            padding: 25px;
             text-align: center;
         }
         .skill-category h3 {
             color: #4e54c8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .skill-category ul {
             list-style: none;
@@ -168,55 +187,73 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
         .skill-category li {
             background: #8f94fb;
             color: white;
             padding: 10px 18px;
-            border-radius: 20px;
+            border-radius: 25px;
             font-weight: bold;
         }
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 25px;
+            margin-top: 50px;
         }
         @media (max-width: 768px) {
-            header { padding: 60px 20px; }
-            header h1 { font-size: 2.5em; }
-            nav a { display: block; margin: 10px 0; }
-            section { padding: 40px 20px; }
+            header h1 { font-size: 2.3em; }
+            nav ul { flex-direction: column; gap: 10px; }
+            nav a { display: block; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Naga Sai Sindhura Pandrangi</h1>
         <p>Data Analyst | Machine Learning Engineer | Data Engineer</p>
-        <p>Fremont, CA | (669)-260-0662</p>
-        <p>
+        <div class="contact-info">
+            Fremont, CA | (669)-260-0662<br>
             <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a> |
-            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a>
-        </p>
-        <p>
+            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a><br>
             <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
             <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
-        </p>
+        </div>
         <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#resume">Resumes</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#resume">Resume</a></li>
+            </ul>
         </nav>
     </header>
 
     <section id="about" class="about">
         <h2>About Me</h2>
-        <p>I’m an Applied Data Intelligence graduate student at San Jose State University who loves building systems that make data actually useful. My work spans data engineering, analytics, and applied machine learning, where I’ve designed reliable ETL pipelines, created dashboards that tell clear stories, and built AI-driven applications using LLMs and deep learning frameworks.<br><br>I enjoy taking messy, complex data and transforming it into scalable, production-ready solutions that blend engineering discipline with machine intelligence. Whether it’s optimizing workflows, uncovering insights, or deploying end-to-end AI systems, I’m happiest when I’m building something that works — and works well.<br><br>I’m also a big believer in continuous learning. I’m always exploring new tools, experimenting with ideas, and refining my approach to create cleaner, smarter, and more impactful solutions.</p>
+        <p>I’m a passionate Data Analytics and Machine Learning professional currently pursuing a Master’s in Data Analytics at San Jose State University. With over 4 years of industry experience in data engineering and analytics, I specialize in building scalable ETL pipelines, creating insightful BI dashboards, and developing advanced AI/ML solutions using LLMs, deep learning, and big data technologies.<br><br>
+        I thrive on transforming complex, messy data into clean, actionable insights and production-ready systems. My expertise spans end-to-end data workflows — from ingestion and processing to modeling, visualization, and deployment. I’m driven by continuous learning and love tackling challenging problems that deliver real business impact.</p>
+    </section>
+
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Master of Science in Data Analytics</h3>
+            <p>San Jose State University | Jan. 2024 – Dec. 2025</p>
+            <p><strong>GPA: 3.8/4.0</strong></p>
+            <p>Relevant Coursework: Machine Learning, Data Visualization, Statistical Analysis, Data Warehousing, Big Data Analytics</p>
+        </div>
+        <div class="education-item">
+            <h3>Bachelor of Technology in Electronics & Communication Engineering</h3>
+            <p>JNTUH, India | May 2015 – May 2019</p>
+            <p><strong>GPA: 3.6/4.0</strong></p>
+        </div>
     </section>
 
     <section id="experience">
@@ -226,26 +263,26 @@
                 <h3>Teaching Assistant – Data Mining</h3>
                 <p>San Jose State University | Aug. 2025 – Present</p>
                 <ul>
-                    <li>Mentored 60+ graduate students in machine learning, Python, and statistics, providing hands-on guidance in scikit-learn and data mining.</li>
-                    <li>Engineered automated grading pipelines that streamlined assessments and elevated feedback quality.</li>
+                    <li>Mentored 60+ graduate students in machine learning, Python, and statistics using scikit-learn and data mining tools.</li>
+                    <li>Designed and implemented automated grading pipelines to improve assessment efficiency and feedback quality.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Data Analyst</h3>
                 <p>S&P Global | Aug. 2022 – Aug. 2023</p>
                 <ul>
-                    <li>Extracted, transformed, and loaded large-scale structured and unstructured data into centralized data warehouses, improving data quality by 25% and enabling faster KPI-driven business intelligence.</li>
-                    <li>Performed data validation and cleansing using advanced SQL, increasing data integrity to 99.5%, reducing report errors in live dashboards, and optimizing complex SQL queries.</li>
-                    <li>Built 10+ interactive Power BI dashboards with DAX for KPI visualization, improving reporting efficiency by 30%, enabling real-time monitoring, and accelerating project delivery by 20%.</li>
+                    <li>Improved data quality by 25% through ETL processes on large-scale structured/unstructured data.</li>
+                    <li>Increased data integrity to 99.5% via advanced SQL validation and built 10+ interactive Power BI dashboards with DAX.</li>
+                    <li>Enhanced reporting efficiency by 30% and accelerated project delivery by 20%.</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Data Engineer</h3>
-                <p>Tata Consultancy Services | June. 2019 – Jul. 2022</p>
+                <p>Tata Consultancy Services | Jun. 2019 – Jul. 2022</p>
                 <ul>
-                    <li>Constructed and maintained scalable ETL pipelines with Apache Airflow and PySpark on GCP, managing ingestion from multiple data sources into BigQuery and GCP Buckets for optimized storage and high-volume processing.</li>
-                    <li>Refactored workflows for parallel processing, reducing pipeline execution time by 40%, improving data accuracy with advanced SQL transformations, and enabling near real-time healthcare data ingestion via Spark Streaming.</li>
-                    <li>Introduced monitoring and alerting within Airflow pipelines, reducing incident response time by 50%, while partnering with analysts to fine-tune data warehouses for seamless Power BI dashboard integration and KPI tracking.</li>
+                    <li>Built and maintained scalable ETL pipelines using Apache Airflow and PySpark on GCP.</li>
+                    <li>Reduced pipeline execution time by 40% via parallel processing and enabled near real-time healthcare data ingestion.</li>
+                    <li>Implemented monitoring/alerting, cutting incident response time by 50%.</li>
                 </ul>
             </div>
         </div>
@@ -256,68 +293,67 @@
         <div class="projects">
             <div class="card">
                 <h3>Full-Stack Agentic Framework for NL to SQL Translation</h3>
-                <p>Apache Hadoop, PySpark, Plotly | Aug. 2024 – Dec. 2024</p>
+                <p>Apache Hadoop, PySpark, Hugging Face, Streamlit | Aug. 2024 – Dec. 2024</p>
                 <ul>
-                    <li>Developed a Streamlit-based Natural Language to SQL platform using Hugging Face LLM fine-tuned on the Spider dataset, boosting BLEU score from 0.38 to 0.52.</li>
-                    <li>Optimized an 8B-parameter model for efficient CPU inference and built an intelligent query refinement system.</li>
+                    <li>Developed a natural language to SQL platform using fine-tuned LLM on Spider dataset (BLEU score: 0.38 → 0.52).</li>
+                    <li>Optimized 8B-parameter model for CPU inference and built intelligent query refinement system.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/NL-to-SQL-Translation" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/NL-to-SQL-Translation" target="_blank">GitHub Repository</a>
                 </div>
             </div>
             <div class="card">
                 <h3>Deepfake Video Detection</h3>
-                <p>XceptionNet, MTCNN, PyTorch | Jan. 2025 – May. 2025</p>
+                <p>XceptionNet, MTCNN, PyTorch | Jan. 2025 – May 2025</p>
                 <ul>
-                    <li>Built a detection system achieving 97.01% accuracy and 0.988 ROC-AUC on Meta DFDC dataset.</li>
-                    <li>Used Focal Loss, MTCNN for face localization, and mixed precision training (35% faster, 40% less GPU).</li>
+                    <li>Achieved 97.01% accuracy and 0.988 ROC-AUC on Meta DFDC dataset using advanced deep learning architectures.</li>
+                    <li>Reduced training time by 35% and GPU usage by 40% with mixed precision and Focal Loss.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Deepfake-Detection" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/Deepfake-Detection" target="_blank">GitHub Repository</a>
                 </div>
             </div>
             <div class="card">
                 <h3>AI Mock Interviewer for Data Roles</h3>
-                <p>LLMs, LoRA Fine-Tuning, RAG, Docker, GCP | Jan. 2025 – Present</p>
+                <p>Mistral-7B, LoRA, RAG, Docker, GCP | Jan. 2025 – Present</p>
                 <ul>
-                    <li>Built an AI-powered mock interview platform using Mistral-7B with LoRA fine-tuning on 4,500+ Q&As and RAG pipeline.</li>
-                    <li>Deployed full-stack app on GCP with Docker, reducing latency by 40%.</li>
+                    <li>Built AI-powered mock interview platform with fine-tuned LLM and retrieval-augmented generation.</li>
+                    <li>Deployed full-stack app on GCP with 40% reduced latency.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/AI-Mock-Interviewer" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/AI-Mock-Interviewer" target="_blank">GitHub Repository</a>
                 </div>
             </div>
             <div class="card">
                 <h3>Smart Book Recommendation System</h3>
-                <p>Apache Hadoop, PySpark, Plotly | Aug. 2024 – Dec. 2024</p>
+                <p>PySpark, ALS, TF-IDF, Flask, Plotly | Aug. 2024 – Dec. 2024</p>
                 <ul>
-                    <li>Hybrid recommendation engine using ALS matrix factorization and TF-IDF, improving relevance by 12%.</li>
-                    <li>Deployed via Flask web app with real-time Plotly dashboards.</li>
+                    <li>Hybrid recommender system improving relevance by 12% using collaborative and content-based filtering.</li>
+                    <li>Deployed real-time Flask web app with interactive dashboards.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Book-Recommendation-System" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/Book-Recommendation-System" target="_blank">GitHub Repository</a>
                 </div>
             </div>
             <div class="card">
                 <h3>Automated ETL & KPI Dashboard on GCP</h3>
-                <p>Apache Airflow, dbt, BigQuery, Power BI | Aug. 2024 – Dec. 2024</p>
+                <p>Airflow, dbt, BigQuery, Power BI | Aug. 2024 – Dec. 2024</p>
                 <ul>
-                    <li>Engineered Airflow + dbt pipeline processing 100K+ daily records from NYT dataset.</li>
-                    <li>Published interactive Power BI dashboards with star schema model.</li>
+                    <li>Processed 100K+ daily records with automated pipeline and star schema modeling.</li>
+                    <li>Delivered interactive Power BI dashboards with 95% on-time data availability.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/ETL-KPI-Dashboard-GCP" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/ETL-KPI-Dashboard-GCP" target="_blank">GitHub Repository</a>
                 </div>
             </div>
             <div class="card">
                 <h3>California Road Safety Dashboard</h3>
                 <p>MySQL, Power BI, Power Query, DAX | Jan. 2024 – May 2024</p>
                 <ul>
-                    <li>End-to-end analysis of traffic accident data with MySQL and Power Query (25% faster preprocessing).</li>
-                    <li>Built interactive Power BI dashboard with DAX KPIs, drill-throughs, and slicers.</li>
+                    <li>Reduced preprocessing time by 25% and built interactive dashboard with drill-throughs and slicers.</li>
                 </ul>
                 <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/California-Road-Safety-Dashboard" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/NagaSaiSindhura/California-Road-Safety-Dashboard" target="_blank">GitHub Repository</a>
                 </div>
             </div>
         </div>
@@ -327,33 +363,18 @@
         <h2>Technical Skills</h2>
         <div class="skill-categories">
             <div class="skill-category">
-                <h3>Programming Languages & Web</h3>
+                <h3>Programming & Web</h3>
                 <ul>
                     <li>Python</li>
+                    <li>SQL</li>
                     <li>HTML</li>
                     <li>CSS</li>
                     <li>React</li>
-                    <li>SQL</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Databases</h3>
+                <h3>ML/DL Frameworks</h3>
                 <ul>
-                    <li>Microsoft SQL Server</li>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                    <li>BigQuery</li>
-                    <li>Snowflake</li>
-                    <li>Redshift</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>ML & DL Libraries</h3>
-                <ul>
-                    <li>Pandas</li>
-                    <li>NumPy</li>
-                    <li>Seaborn</li>
-                    <li>Matplotlib</li>
                     <li>Scikit-learn</li>
                     <li>PyTorch</li>
                     <li>TensorFlow</li>
@@ -362,42 +383,30 @@
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Analytics & ML Techniques</h3>
+                <h3>Data Processing</h3>
                 <ul>
-                    <li>Regression</li>
-                    <li>Classification</li>
-                    <li>Clustering</li>
-                    <li>Time Series</li>
-                    <li>LSTM/GRU</li>
-                    <li>Transformers</li>
-                    <li>RAG</li>
-                    <li>Fine-Tuning</li>
+                    <li>Pandas</li>
+                    <li>NumPy</li>
+                    <li>Seaborn</li>
+                    <li>Matplotlib</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Big Data</h3>
+                <h3>Big Data & Cloud</h3>
                 <ul>
                     <li>Spark</li>
                     <li>Hadoop</li>
-                    <li>Kafka</li>
                     <li>Airflow</li>
-                    <li>DBT</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud & Deployment</h3>
-                <ul>
-                    <li>AWS</li>
                     <li>GCP</li>
+                    <li>AWS</li>
                     <li>Snowflake</li>
-                    <li>Docker</li>
                 </ul>
             </div>
             <div class="skill-category">
                 <h3>Visualization & BI</h3>
                 <ul>
-                    <li>Tableau</li>
                     <li>Power BI</li>
+                    <li>Tableau</li>
                     <li>Looker Studio</li>
                     <li>Plotly Dash</li>
                     <li>Excel</li>
@@ -408,13 +417,32 @@
                 <ul>
                     <li>Git</li>
                     <li>Flask</li>
+                    <li>Docker</li>
+                    <li>DBT</li>
+                    <li>Kafka</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="about">
+            <p><strong>Location:</strong> Fremont, CA</p>
+            <p><strong>Phone:</strong> (669)-260-0662</p>
+            <p><strong>Email:</strong> 
+                <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a><br>
+                <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a>
+            </p>
+            <p><strong>Social:</strong><br>
+                <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </section>
+
     <section id="resume">
-        <h2>Resumes</h2>
+        <h2>Resume</h2>
         <div class="resumes">
             <div class="card resume-card">
                 <h3>Data Analytics Focused Resume</h3>
@@ -430,5 +458,6 @@
     <footer>
         <p>&copy; 2026 Naga Sai Sindhura Pandrangi. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
