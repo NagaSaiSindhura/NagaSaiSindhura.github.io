@@ -7,39 +7,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0d6efd; /* Main blue */
-            --primary-dark: #0056b3;
-            --dark: #121212;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --primary: #6366f1; /* Indigo blue for modern feel */
+            --primary-dark: #4f46e5;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
             --accent: #ffffff;
-            --text-dark: #333;
+            --text: #1f2937;
             --shadow: rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, var(--primary), #6610f2);
+            --gradient: linear-gradient(135deg, #6366f1, #a855f7);
         }
+        * { box-sizing: border-box; }
         body { 
             font-family: 'Inter', sans-serif; 
             margin: 0; 
             padding: 0; 
             background: var(--light); 
-            color: var(--text-dark); 
+            color: var(--text); 
             line-height: 1.7; 
         }
         a { color: var(--primary); text-decoration: none; }
         a:hover { color: var(--primary-dark); }
 
-        /* Navigation - Fixed top bar */
+        /* Fixed Nav with glass effect */
         nav {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1.5rem 0;
             z-index: 1000;
             box-shadow: 0 4px 20px var(--shadow);
-            transition: background 0.3s;
         }
         nav ul {
             list-style: none;
@@ -49,15 +48,14 @@
         }
         nav li {
             display: inline-block;
-            margin: 0 1.8rem;
+            margin: 0 2rem;
         }
         nav a {
-            color: var(--text-dark);
+            color: var(--text);
             font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
+            font-size: 1.15rem;
+            padding: 0.6rem 0;
             position: relative;
-            transition: color 0.3s;
         }
         nav a:hover, nav a.active {
             color: var(--primary);
@@ -65,18 +63,19 @@
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
             width: 0;
             height: 3px;
             background: var(--primary);
-            transition: width 0.3s;
+            transition: all 0.4s;
+            transform: translateX(-50%);
         }
         nav a:hover::after, nav a.active::after {
             width: 100%;
         }
 
-        /* Hero / Home View */
+        /* Home Hero - Full viewport */
         #home {
             min-height: 100vh;
             display: flex;
@@ -84,149 +83,165 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             background: var(--gradient);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+            pointer-events: none;
         }
         #home .profile-photo {
-            width: 220px;
-            height: 220px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
-            border: 8px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 2rem;
+            border: 10px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin-bottom: 2.5rem;
+            transition: transform 0.5s;
+        }
+        #home .profile-photo:hover {
+            transform: scale(1.05);
         }
         #home h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin: 0.5rem 0;
+            font-weight: 700;
         }
         #home .tagline {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
         }
         #home .description {
-            font-size: 1.2rem;
-            max-width: 700px;
-            opacity: 0.85;
+            font-size: 1.3rem;
+            max-width: 800px;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+        .social-btns {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-btns a {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .social-btns a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
         }
 
-        /* Content Sections - Hidden by default except home */
+        /* Content Sections - Single view mode */
         .content-section {
             display: none;
-            padding: 6rem 2rem 4rem;
+            padding: 8rem 2rem 5rem;
             max-width: 1200px;
             margin: 0 auto;
             min-height: 100vh;
+            animation: fadeIn 0.8s ease;
         }
         .content-section.active {
             display: block;
-            animation: fadeIn 0.6s ease;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
+            font-size: 3rem;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
+            color: var(--primary);
             position: relative;
         }
         h2::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
+            width: 100px;
+            height: 5px;
             background: var(--primary);
-            margin: 1rem auto;
-            border-radius: 2px;
+            margin: 1.5rem auto 0;
+            border-radius: 3px;
         }
 
-        /* Cards */
+        /* Enhanced Cards */
         .experience-item, .project-card {
             background: white;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s;
+            border: 1px solid rgba(99,102,241,0.1);
         }
         .experience-item:hover, .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(99,102,241,0.2);
         }
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2.5rem;
-        }
-        .role-tag {
-            font-size: 0.95rem;
-            color: var(--gray);
-            font-style: italic;
-        }
-
-        /* Skills Grid */
-        #skills .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 3rem;
         }
-        .skill-category h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
+
+        /* Skills */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3.5rem;
         }
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+        .skill-category h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.8rem;
         }
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1.4rem;
         }
         .skill-badge {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 0.9rem 1.8rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(13,110,253,0.25);
-            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(99,102,241,0.3);
+            transition: all 0.4s;
         }
         .skill-badge:hover {
-            transform: translateY(-5px) scale(1.05);
-            background: var(--primary-dark);
-            box-shadow: 0 10px 25px rgba(13,110,253,0.35);
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 15px 30px rgba(99,102,241,0.4);
         }
 
-        /* Footer Contact */
         footer {
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         @media (max-width: 768px) {
-            #home h1 { font-size: 2.8rem; }
-            #home .tagline { font-size: 1.4rem; }
+            #home h1 { font-size: 3rem; }
+            #home .tagline { font-size: 1.5rem; }
             nav li { margin: 0 1rem; }
-            .content-section { padding: 5rem 1rem 3rem; }
-            h2 { font-size: 2.3rem; }
+            .social-btns { flex-direction: column; }
+            .content-section { padding: 7rem 1.5rem 4rem; }
         }
     </style>
 </head>
@@ -244,79 +259,74 @@
         </ul>
     </nav>
 
-    <!-- Home / Hero Section -->
+    <!-- Home Section -->
     <section id="home" class="content-section active">
-        <img src="https://via.placeholder.com/220" alt="Naga Sai Sindhura Pandrangi" class="profile-photo"> <!-- Replace with your photo URL -->
+        <img src="https://via.placeholder.com/250" alt="Profile Photo" class="profile-photo"> <!-- REPLACE WITH YOUR PHOTO URL -->
         <h1>Naga Sai Sindhura Pandrangi</h1>
         <p class="tagline">Data & AI Engineer</p>
         <p class="description">Driving data-driven decisions by converting complex datasets into intelligent, production-ready AI solutions using advanced analytics, machine learning, deep learning, and generative AI.</p>
+        <div class="social-btns">
+            <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a>
+            <a href="mailto:sindhura.naga98@gmail.com">Email Me</a>
+        </div>
     </section>
 
-    <!-- Other Sections -->
+    <!-- About -->
     <section id="about" class="content-section">
         <h2>About Me</h2>
         <p>Master’s student in Data Analytics at San Jose State University (GPA: 3.8/4.0) with 4+ years of professional experience at S&P Global and Tata Consultancy Services, specializing in end-to-end data pipelines, business intelligence, machine learning, and AI-driven systems.</p>
         <p>Proven expertise in building scalable ETL workflows, cloud-based data infrastructure, and high-impact BI dashboards, alongside hands-on experience with LLMs, deep learning models, and real-world ML deployment. Passionate about transforming complex data into actionable insights that drive business decisions, operational efficiency, and innovation in AI-powered analytics.</p>
     </section>
 
+    <!-- Experience -->
     <section id="experience" class="content-section">
         <h2>Professional Experience</h2>
-        <!-- Your experience items here (same as before) -->
         <div class="experience-item">
             <h3>Teaching Assistant – Data Mining | San Jose State University <span class="role-tag">(Data Science Educator & ML Mentor)</span></h3>
             <p><strong>Aug 2025 – Dec 2025</strong></p>
             <ul>
-                <li>Mentored 60+ graduate students in machine learning, Python, statistics, and data mining...</li>
-                <!-- Keep the rest -->
+                <li>Mentored 60+ graduate students in machine learning, Python, statistics, and data mining, providing hands-on guidance in scikit-learn and real-world applications.</li>
+                <li>Engineered automated grading pipelines that streamlined assessments, elevated feedback quality, and improved student learning outcomes.</li>
             </ul>
         </div>
-        <!-- Add the other two experience items similarly -->
-    </section>
-
-    <section id="projects" class="content-section">
-        <h2>Key Projects</h2>
-        <!-- Your projects content here -->
-    </section>
-
-    <section id="skills" class="content-section">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <!-- Your skill categories here (same as previous updated version) -->
+        <div class="experience-item">
+            <h3>Data Analyst | S&P Global <span class="role-tag">(Data Analyst & BI Specialist)</span></h3>
+            <p><strong>Aug 2022 – Aug 2023</strong></p>
+            <ul>
+                <li>Extracted, transformed, and loaded large-scale structured and unstructured data into centralized warehouses, improving data quality by 25% and enabling faster KPI-driven business intelligence.</li>
+                <li>Performed data validation and cleansing using advanced SQL, increasing data integrity to 99.5%, reducing report errors in live dashboards, and optimizing complex queries for efficiency.</li>
+                <li>Built 10+ interactive Power BI dashboards with DAX for KPI visualization, improving reporting efficiency by 30%, enabling real-time monitoring, and accelerating project delivery by 20%.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Data Engineer | Tata Consultancy Services <span class="role-tag">(Data Engineer & ETL Expert)</span></h3>
+            <p><strong>Jun 2019 – Jul 2022</strong></p>
+            <ul>
+                <li>Constructed and maintained scalable ETL pipelines with Apache Airflow and PySpark on GCP, managing ingestion from multiple sources into BigQuery and GCP Buckets for optimized storage and high-volume processing.</li>
+                <li>Refactored workflows for parallel processing, reducing pipeline execution time by 40%, improving data accuracy with advanced SQL transformations, and enabling near real-time healthcare data ingestion via Spark Streaming.</li>
+                <li>Introduced monitoring and alerting within Airflow pipelines, reducing incident response time by 50%, while partnering with analysts to fine-tune data warehouses for seamless Power BI dashboard integration and KPI tracking.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="education" class="content-section">
-        <h2>Education</h2>
-        <!-- Your education items -->
-    </section>
-
-    <section id="contact" class="content-section">
-        <footer>
-            <h2>Contact Me</h2>
-            <p>&copy; 2026 Naga Sai Sindhura Pandrangi | Fremont, CA | (669)-260-0662 | nagasaisindhura.pandrangi@sjsu.edu</p>
-            <p><a href="https://linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> | <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a></p>
-        </footer>
-    </section>
+    <!-- Projects, Skills, Education, Contact - Add your full content here similarly -->
 
     <script>
-        // Simple tab-like navigation
         const navLinks = document.querySelectorAll('nav a');
         const sections = document.querySelectorAll('.content-section');
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
+                const target = link.getAttribute('href').substring(1);
 
-                // Update active section
                 sections.forEach(sec => sec.classList.remove('active'));
-                document.getElementById(targetId).classList.add('active');
+                document.getElementById(target).classList.add('active');
 
-                // Update active nav link
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
 
-                // Scroll to top for better UX in tab mode
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
