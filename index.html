@@ -1,523 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naga Sai Sindhura Pandrangi - Portfolio</title>
-    <style>
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #212529;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-        }
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 6px solid #38bdf8;
-            object-fit: cover;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-        }
-        header h1 {
-            font-size: 3em;
-            margin: 10px 0;
-        }
-        .tagline {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-        .title {
-            font-size: 1.4em;
-            margin: 15px 0;
-        }
-        .recruiter-message {
-            background: rgba(56, 189, 248, 0.15);
-            padding: 18px 30px;
-            border-radius: 12px;
-            font-size: 1.25em;
-            max-width: 800px;
-            margin: 25px auto;
-            border-left: 5px solid #38bdf8;
-        }
-        .contact-info {
-            font-size: 1.2em;
-            margin: 20px 0;
-        }
-        .contact-info a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        nav {
-            margin-top: 40px;
-            padding: 20px 0;
-            background: rgba(0,0,0,0.2);
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            text-align: center;
-            color: #0f172a;
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            width: 120px;
-            height: 5px;
-            background: #38bdf8;
-            display: block;
-            margin: 20px auto 0;
-            border-radius: 3px;
-        }
-        .about, .education, .contact {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-            padding: 50px;
-            text-align: left;
-            font-size: 1.1em;
-        }
-        .education-item {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .education-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .education-item h3, .card h3 {
-            color: #0f172a;
-        }
-        .contact a {
-            color: #38bdf8;
-        }
-        .experience, .projects, .resumes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        .card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-            padding: 40px;
-            transition: transform 0.4s;
-        }
-        .card:hover {
-            transform: translateY(-15px);
-        }
-        .card h3 {
-            font-size: 1.9em;
-            margin-bottom: 15px;
-        }
-        .project-links a, .resume-card a {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #38bdf8;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.4s;
-        }
-        .project-links a:hover, .resume-card a:hover {
-            background: #0ea5e9;
-        }
-        .resume-card {
-            text-align: center;
-        }
-        .resume-card a {
-            padding: 16px 35px;
-            font-size: 1.3em;
-        }
-        .skill-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        .skill-category {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-            padding: 30px;
-            text-align: center;
-        }
-        .skill-category h3 {
-            color: #0f172a;
-            font-size: 1.6em;
-            margin-bottom: 25px;
-        }
-        /* New styling for skills as pill badges */
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-        .skill-category li {
-            background: #38bdf8;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.05em;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .skill-category li:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
-            background: #0ea5e9;
-        }
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-        }
-        @media (max-width: 768px) {
-            .profile-photo { width: 140px; height: 140px; }
-            header { padding: 100px 20px 60px; }
-            header h1 { font-size: 2.5em; }
-            .tagline { font-size: 1.4em; }
-            .recruiter-message { font-size: 1.1em; padding: 15px 20px; }
-            .skill-category li {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <img src="profile.jpeg" alt="Naga Sai Sindhura Pandrangi" class="profile-photo">
-            <h1>Naga Sai Sindhura Pandrangi</h1>
-            <p class="tagline">Building scalable data pipelines and production-ready AI solutions that drive real business impact.</p>
-            <div class="recruiter-message">
-                Hi! I’m actively exploring full-time opportunities in Data Science, Machine Learning, Analytics, Data Engineering, and Generative AI. I love building scalable data platforms and intelligent AI solutions that create real business value. I’d love to discuss how I can contribute to your team!
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Technical Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#resume">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>I turn messy, unstructured data into clear, reliable insights. Whether it’s finding patterns in terabytes of raw information, building dashboards that guide decisions, or developing AI/ML models that forecast outcomes, I make complex data usable.</p>
-    <p>With a master’s in applied data intelligence from San Jose State University and over four years of industry experience, I turn data into impact by engineering:</p>
-    <ul>
-        <li>Scalable, high-throughput ETL pipelines</li>
-        <li>Intuitive BI dashboards</li>
-        <li>Advanced AI/ML systems using LLMs, deep learning, and distributed computing</li>
-    </ul>
-    <p>I manage the entire data lifecycle—from ingestion and cleaning to modeling, visualization, and deployment—ensuring systems that are stable, efficient, and ready for production.</p>
-    <p>If you need someone who can quickly understand your data challenges, deliver practical solutions, and move seamlessly between technical detail and business needs, I’m ready to help.</p>
-</section>
-    <section id="education" class="education">
-        <h2>Education</h2>
-        <div class="education-item">
-            <h3>Master of Science in Applied Data Intelligence </h3>
-            <p>San Jose State University | Jan. 2024 – Dec. 2025</p>
-            <p><strong>GPA: 3.8/4.0</strong></p>
-            <p>Relevant Coursework: Machine Learning, Data Visualization, Statistical Analysis, Data Warehousing, Big Data Analytics, Generative AI, Database Systems, Deep Learning</p>
-        </div>
-        <div class="education-item">
-            <h3>Bachelor of Technology in Electronics & Communication Engineering</h3>
-            <p>JNTUH, India | May 2015 – May 2019</p>
-            <p><strong>GPA: 3.6/4.0</strong></p>
-        </div>
-    </section>
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience">
-            <div class="card">
-                <h3>Teaching Assistant – Data Mining</h3>
-                <p>San Jose State University | Aug. 2025 – Present</p>
-                <ul>
-                    <li>Mentored 60+ graduate students in machine learning, Python, and statistics, providing hands-on guidance in scikit-learn and data mining.</li>
-                    <li>Engineered automated grading pipelines that streamlined assessments and elevated feedback quality.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Data Analyst</h3>
-                <p>S&P Global | Aug. 2022 – Aug. 2023</p>
-                <ul>
-                    <li>Extracted, transformed, and loaded large-scale structured and unstructured data into centralized data warehouses, improving data quality by 25%.</li>
-                    <li>Performed data validation and cleansing using advanced SQL, increasing data integrity to 99.5%.</li>
-                    <li>Built 10+ interactive Power BI dashboards with DAX, improving reporting efficiency by 30%.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Data Engineer</h3>
-                <p>Tata Consultancy Services | Jun. 2019 – Jul. 2022</p>
-                <ul>
-                    <li>Constructed and maintained scalable ETL pipelines with Apache Airflow and PySpark on GCP.</li>
-                    <li>Refactored workflows for parallel processing, reducing execution time by 40%.</li>
-                    <li>Introduced monitoring and alerting, reducing incident response time by 50%.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>Full-Stack Agentic Framework for NL to SQL Translation</h3>
-                <p>Apache Hadoop, PySpark, Plotly | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Developed a Streamlit-based Natural Language to SQL platform using Hugging Face LLM fine-tuned on the Spider dataset, boosting BLEU score from 0.38 to 0.52 and enabling schema exploration, query generation, and interactive Plotly visual analytics.</li>
-                    <li>Optimized an 8B-parameter model for efficient CPU inference, cutting costs and latency, while building an intelligent query refinement system that improved SQL accuracy and delivered a smoother user experience.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Full-Stack-Agentic-Framework-for-Natural-Language-to-SQL-Translation" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Deepfake Video Detection</h3>
-                <p>XceptionNet, MTCNN, PyTorch | Jan. 2025 – May. 2025</p>
-                <ul>
-                    <li>Built a detection system leveraging XceptionNet, ResNet-Swish-BiLSTM, and Swiss Residual Blocks, attaining 97.01% accuracy and 0.988 ROC-AUC on Meta DFDC.</li>
-                    <li>Applied Focal Loss to manage class imbalance and used MTCNN for precise face localization and Accelerated training with PyTorch mixed precision, reducing compute time by 35% and GPU usage by 40%.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/DeepFake-Video-Detection" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>AI Mock Interviewer: Analytics & Insights</h3>
-                <p>LLM’s, Fine Tuning, RAG, Docker, GCP | Jan. 2025 -Dec 2025</p>
-                <ul>
-                    <li>Developed Interview Prep, an AI-powered mock interview platform using four fine-tuned LLMs on 4,500+ Q&A pairs; integrated RAG for personalized question generation from resumes/job descriptions and real-time feedback, evaluated via BLEU, ROUGE, BERTScore, accuracy, and hallucination metrics.</li>
-                    <li>Engineered scalable full-stack system with React frontend (Vercel), FastAPI backend (Hugging Face/Docker), and GCP data pipelines; optimized with quantization for ~40% reduced memory and low-latency inference, delivering intuitive UI and performance dashboards for data analytics/science interview preparation</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/AI-Mock-Interviewer-for-Data-Analyst-Data-Scientist" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Smart Book Recommendation System</h3>
-                <p>Apache Hadoop, PySpark, Plotly | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Developed a hybrid book recommendation engine using ALS matrix factorization and TF-IDF for collaborative and content-based filtering, improving recommendation relevance by 12%.</li>
-                    <li>Utilized PySpark for real-time data processing, created Plotly dashboards for user behavior insights, and deployed the system via a Flask web app for live recommendations</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Smart-Book-Recommendation-System" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Automated ETL & KPI Dashboard on GCP</h3>
-                <p>Apache Airflow, Star Schema, BigQuery, Power BI | Aug. 2024 – Dec. 2024</p>
-                <ul>
-                    <li>Engineered an ETL pipeline with Apache Airflow and dbt tool to process 100K+ daily records from the New York Times dataset, streamlining ingestion, transformation, and loading into the data warehouse.</li>
-                    <li>Published Power BI dashboards connected to BigQuery deploying a star schema model, ensuring 95% on-time data delivery.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/Automated-ETL-KPI-Dashboard-on-GCP" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>California Road Safety Dashboard</h3>
-                <p>MySQL, PowerBI, Power Query, DAX | Jan. 2024 – May 2024</p>
-                <ul>
-                    <li>Performed end-to-end analysis of traffic accident data using MySQL and Power Query for data extraction and transformation, reducing preprocessing time by 25%.</li>
-                    <li>Crafted a Power BI dashboard with DAX-based KPIs, drill-throughs, and slicers by time, location, and severity. Also leveraged Power Pivot to model data and define relationships for accurate, responsive reporting.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/NagaSaiSindhura/California-Road-Safety-Dashboard" target="_blank">View on GitHub Profile</a>
-                </div>
-            </div>
-        </div>
-    </section>
+\documentclass[10pt,letterpaper]{article}
 
-    <section id="skills" class="skills">
-        <h2>Technical Skills</h2>
-        <div class="skill-categories">
-            <div class="skill-category">
-                <h3>Programming & Web</h3>
-                <ul>
-                    <li>Python</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>React</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <ul>
-                    <li>Microsoft SQL Server</li>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                    <li>BigQuery</li>
-                    <li>Snowflake</li>
-                    <li>Redshift</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>ML & DL Libraries</h3>
-                <ul>
-                    <li>Pandas</li>
-                    <li>NumPy</li>
-                    <li>Seaborn</li>
-                    <li>Matplotlib</li>
-                    <li>Scikit-learn</li>
-                    <li>PyTorch</li>
-                    <li>TensorFlow</li>
-                    <li>Keras</li>
-                    <li>Hugging Face Transformers</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Analytics & ML Techniques</h3>
-                <ul>
-                    <li>Regression</li>
-                    <li>Classification</li>
-                    <li>Clustering</li>
-                    <li>Time Series Forecasting</li>
-                    <li>LSTM/GRU</li>
-                    <li>Transformers</li>
-                    <li>Feature Engineering</li>
-                    <li>A/B Testing</li>
-                    <li>Hypothesis Testing</li>
-                    <li>Statistical Inference</li>
-                    <li>LLM</li>
-                    <li>RAG</li>
-                    <li>AI Agents</li>
-                    <li>Fine Tuning</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Big Data Technologies</h3>
-                <ul>
-                    <li>Spark</li>
-                    <li>Hadoop</li>
-                    <li>Kafka</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Data Warehousing</h3>
-                <ul>
-                    <li>Star and Snowflake Schema</li>
-                    <li>DBT Tool</li>
-                    <li>Apache Airflow</li>
-                    <li>ETL Pipelines</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud Deployment</h3>
-                <ul>
-                    <li>AWS (S3, Redshift, Athena, Glue)</li>
-                    <li>Google Cloud Platform (BigQuery)</li>
-                    <li>Vercel</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Visualization & BI Tools</h3>
-                <ul>
-                    <li>Tableau</li>
-                    <li>Power BI</li>
-                    <li>Plotly (Dash)</li>
-                    <li>Excel</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Other Tools</h3>
-                <ul>
-                    <li>Git</li>
-                    <li>Flask</li>
-                    <li>HP ALM</li>
-                    <li>Jira</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p><strong>Location:</strong> Fremont, CA</p>
-        <p><strong>Phone:</strong> (669)-260-0662</p>
-        <p><strong>Email:</strong><br>
-            <a href="mailto:nagasaisindhura.pandrangi@sjsu.edu">nagasaisindhura.pandrangi@sjsu.edu</a><br>
-            <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a>
-        </p>
-        <p><strong>Social:</strong><br>
-            <a href="https://www.linkedin.com/in/sindhurapandrangi" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/NagaSaiSindhura" target="_blank">GitHub</a>
-        </p>
-    </section>
-    <section id="resume">
-        <h2>Resume</h2>
-        <div class="resumes">
-            <div class="card resume-card">
-                <h3>Resume</h3>
-                <a href="Sindhu_Resume.pdf" download="NagaSaiSindhura_Resume.pdf">Download PDF</a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2026 Naga Sai Sindhura Pandrangi. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+% ---------- ATS-friendly setup: single column, no tables, no icons, plain fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\setlist[itemize]{leftmargin=0.18in,itemsep=1.5pt,topsep=2pt,parsep=0pt,label=\textbullet}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{-5pt}\rule{\linewidth}{0.5pt}]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\newcommand{\role}[4]{%
+  \textbf{#1} \hfill \textbf{#3}\\
+  \textit{#2} \hfill \textit{#4}\vspace{1pt}
+}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+  {\LARGE \textbf{Naga Sai Sindhura Pandrangi}}\\[2pt]
+  \textbf{Data Engineer \,|\, Data Analyst \,|\, Data Scientist / ML Engineer}\\[3pt]
+  Fremont, CA \,|\, (669) 260-0662 \,|\, \href{mailto:sindhura.naga98@gmail.com}{sindhura.naga98@gmail.com} \,|\,
+  \href{https://linkedin.com/in/sindhurapandrangi}{linkedin.com/in/sindhurapandrangi} \,|\,
+  \href{https://nagasaisindhura.github.io/}{nagasaisindhura.github.io}
+\end{center}
+
+% ---------- SUMMARY ----------
+\section{Professional Summary}
+Data professional with 5+ years of experience across data engineering, analytics, and machine learning. Builds production
+ETL/ELT pipelines and dimensional models on \textbf{Snowflake}, \textbf{GCP (BigQuery, Cloud Storage)}, and SQL Server using
+\textbf{dbt}, \textbf{Apache Airflow}, Python, and SQL, and delivers KPI reporting in \textbf{Power BI}, \textbf{Tableau}, and
+\textbf{Looker Studio}. Hands-on with the ML lifecycle: feature engineering, model training and evaluation, \textbf{LLM fine-tuning},
+\textbf{RAG pipelines}, and \textbf{multi-agent systems}, with models deployed through FastAPI, Flask, and Docker.
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+\begin{itemize}[label={},leftmargin=0pt,itemsep=1pt]
+  \item \textbf{Data Warehousing:} Snowflake, Google BigQuery, MS SQL Server, MySQL
+  \item \textbf{ETL/ELT \& Transformation:} dbt (Core \& Cloud), Jinja Macros, Incremental Models, dbt Tests, ETL/ELT Pipeline Design, Star Schema \& Dimensional Modeling
+  \item \textbf{Orchestration:} Apache Airflow (DAG design, scheduling, monitoring, alerting), Cloud Composer
+  \item \textbf{Cloud (GCP):} BigQuery, Google Cloud Storage, Cloud Composer, REST API Ingestion
+  \item \textbf{Visualization \& BI:} Power BI (DAX, Power Query), Tableau, Looker Studio
+  \item \textbf{Languages:} Python (Pandas, NumPy, Scikit-learn), SQL (CTEs, window functions, query optimization), Bash
+  \item \textbf{Analytics:} KPI Design, Exploratory Data Analysis, Data Cleaning, Data Validation, Plotly, Seaborn, Matplotlib
+  \item \textbf{Machine Learning:} Random Forest, XGBoost, Regression, Feature Engineering, PyTorch, CNN/BiLSTM, Model Evaluation (Accuracy, ROC-AUC, BLEU, ROUGE, BERTScore)
+  \item \textbf{GenAI:} RAG Pipelines, LLM Fine-Tuning, Hugging Face Transformers, Multi-Agent Systems, Vector Search, Prompt Engineering, Quantization
+  \item \textbf{DevOps \& Tools:} Git, GitHub/GitLab, CI/CD, Docker, FastAPI, Flask, Streamlit, Jira, Confluence
+\end{itemize}
+
+% ---------- EXPERIENCE ----------
+\section{Professional Experience}
+
+\role{AI/ML Engineer}{Referu.ai}{Feb 2026 -- Present}{Remote}
+\begin{itemize}
+  \item Built and fine-tuned domain-specific LLMs on curated intake data, improving response relevance and grounding for a multi-agent AI platform serving users across multiple jurisdictions.
+  \item Designed and deployed end-to-end \textbf{RAG pipelines} covering document ingestion, chunking, embedding generation, vector indexing, and retrieval re-ranking, so agents answer from verified, jurisdiction-specific sources.
+  \item Developed \textbf{multi-agent workflows} in which specialized agents handle intake, retrieval, reasoning, and compliance checks, using tool calling and structured outputs.
+  \item Trained and evaluated models using supervised fine-tuning and prompt optimization, tracking groundedness, accuracy, and hallucination rates to guide each iteration.
+  \item Added automated evaluation, testing, and monitoring to the model pipeline, cutting non-compliant model outputs by \textbf{27\%}.
+  \item Analyzed retrieval and intake data to identify failure patterns, then fixed chunking and retrieval logic, improving grounded-response accuracy in production.
+\end{itemize}
+
+\vspace{4pt}
+\role{Data Engineer}{MMP Insulators}{Sep 2024 -- Jul 2025}{Remote}
+\begin{itemize}
+  \item Built \textbf{Apache Airflow} DAGs to ingest sales, inventory, and CRM data from 5+ regional systems into \textbf{BigQuery on GCP}, cutting manual data collection effort by \textbf{35\%}.
+  \item Modeled a star schema in BigQuery using \textbf{dbt} (staging, intermediate, and mart layers) and optimized SQL transformations, reducing dashboard query time by \textbf{30\%} and reporting errors by \textbf{20\%}.
+  \item Wrote dbt tests and documentation for key models, catching data issues before they reached reports and improving trust in the numbers.
+  \item Built and maintained \textbf{15+ Tableau dashboards} on the warehouse, giving leadership real-time visibility into regional and product-level sales trends.
+  \item Partnered with sales and operations stakeholders to define KPIs and reporting requirements, and managed code through Git with peer review in an Agile team using Jira.
+\end{itemize}
+
+\vspace{4pt}
+\role{Data Engineer}{S\&P Global}{Aug 2022 -- Aug 2023}{Remote}
+\begin{itemize}
+  \item Built Python and SQL ETL pipelines loading structured and unstructured financial data from multiple source systems into \textbf{Snowflake}, raising data integrity to \textbf{99.5\%} and improving data quality by \textbf{25\%}.
+  \item Modeled dimensional schemas (facts and dimensions) in Snowflake using \textbf{dbt}, with reusable Jinja macros, incremental models, and automated tests for consistent, auditable transformations.
+  \item Orchestrated daily and intraday loads with \textbf{Apache Airflow}, adding dependency management, retries, and failure alerts to keep financial datasets fresh and reliable.
+  \item Tuned Snowflake workloads through warehouse sizing, clustering, and query rewrites, improving query performance for downstream analysts.
+  \item Built \textbf{10+ Power BI dashboards} with DAX measures for financial KPIs, cutting stakeholder reporting turnaround by \textbf{20\%}.
+  \item Documented data lineage, mappings, and business rules to support audits and onboarding of new team members.
+\end{itemize}
+
+\vspace{4pt}
+\role{Data Engineer -- DaVita Kidney Care Project}{Tata Consultancy Services (TCS)}{Jun 2019 -- Jul 2022}{India}
+\begin{itemize}
+  \item Built and maintained \textbf{Apache Airflow}-orchestrated ETL pipelines on \textbf{GCP} that ingested patient and treatment data from multiple clinical source systems into a \textbf{BigQuery} warehouse.
+  \item Designed fact and dimension tables in BigQuery with partitioning and clustering, supporting clinical and operational reporting at scale.
+  \item Added Airflow monitoring, SLAs, and alerting that cut incident response time by \textbf{50\%}, and refactored data jobs to reduce pipeline runtime by \textbf{40\%}.
+  \item Wrote complex SQL (CTEs, window functions, aggregations) for transformation, reconciliation, and data validation, ensuring accuracy of healthcare data handled under strict compliance requirements.
+  \item Supported downstream reporting in \textbf{Power BI}, working with business analysts to translate requirements into reliable, query-ready data models.
+  \item Followed Git-based version control, code reviews, and release processes in an Agile delivery model.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+\section{Projects}
+
+\textbf{AI Mock Interviewer for Data Roles (LLMs \& RAG)} \hfill \textit{Hugging Face, RAG, FastAPI, Docker, GCP, Looker Studio}\\
+\begin{itemize}
+  \item Fine-tuned four LLMs on \textbf{4,500+ Q\&A pairs} and built a \textbf{RAG pipeline} that generates personalized interview questions from resumes and job descriptions, with real-time feedback.
+  \item Evaluated models with BLEU, ROUGE, BERTScore, accuracy, and hallucination metrics; applied quantization for approximately \textbf{40\% lower memory use} and low-latency inference.
+  \item Built \textbf{Looker Studio} performance dashboards on GCP data pipelines, and shipped a full-stack app with a React frontend (Vercel) and FastAPI backend (Docker).
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Automated ETL \& KPI Dashboard on GCP} \hfill \textit{Airflow, dbt, BigQuery, GCS, Power BI}\\
+\begin{itemize}
+  \item Designed an ETL pipeline processing \textbf{100K+ daily records} from the New York Times REST APIs, landing raw data in Google Cloud Storage and transforming it with \textbf{dbt} into analytics-ready models.
+  \item Built a star schema with \textbf{10+ fact and dimension tables} in BigQuery for faster querying and optimized reporting.
+  \item Automated runs with \textbf{Airflow DAGs}, achieving \textbf{95\%+ on-time data delivery}, and published auto-refreshing \textbf{Power BI} KPI dashboards connected directly to BigQuery.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Cricket Match Win Prediction} \hfill \textit{Python, Scikit-learn, XGBoost, Flask, Plotly}\\
+\begin{itemize}
+  \item Engineered features (runs left, balls left, wickets left) from \textbf{2,389 ODI matches} (2001--2024) and trained Random Forest, XGBoost, and Linear Regression models, reaching up to \textbf{91.6\% accuracy and 0.97 AUC}.
+  \item Deployed the model in a Flask web app for real-time win prediction, and produced 10+ EDA visualizations (Plotly, Seaborn, Matplotlib) to explain model behavior to stakeholders.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{DeepFake Video Detection} \hfill \textit{PyTorch, CNN-BiLSTM, MTCNN, Deep Learning}\\
+\begin{itemize}
+  \item Developed a hybrid CNN-BiLSTM model (XceptionNet and ResNet-Swish-BiLSTM) achieving \textbf{97.01\% validation accuracy and 0.988 ROC-AUC} on the Meta DFDC dataset.
+  \item Built an MTCNN frame-extraction pipeline sampling 10 frames per video, and reduced overfitting with Focal Loss, label smoothing, mixed-precision training, and cosine annealing with warm restarts.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Agentic Natural Language to SQL Translation} \hfill \textit{Hugging Face, Streamlit, Plotly, SQL}\\
+\begin{itemize}
+  \item Fine-tuned a Hugging Face LLM on the Spider dataset, improving BLEU from \textbf{0.38 to 0.52}, with an agent that asks follow-up questions to resolve vague queries before generating SQL.
+  \item Built a Streamlit interface for schema exploration, query generation, and Plotly visualization for non-technical users.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{California Road Safety Dashboard} \hfill \textit{Power BI, Power Query, DAX, MySQL}\\
+\begin{itemize}
+  \item Cleaned and modeled California accident data with Power Query and built interactive \textbf{Power BI} dashboards (slicers, drilldowns, time filters) on a MySQL source.
+  \item Created DAX measures for KPIs such as accident frequency by county, average severity, and time-of-day trends, helping users identify high-risk zones.
+\end{itemize}
+
+% ---------- EDUCATION ----------
+\section{Education}
+\textbf{San Jose State University}, San Jose, CA \hfill Jan 2024 -- Dec 2025\\
+Master of Science in Applied Data Intelligence \,|\, GPA: 3.8/4.0\\[3pt]
+\textbf{Jawaharlal Nehru Technological University Hyderabad (JNTUH)}, India \hfill May 2015 -- May 2019\\
+Bachelor of Technology in Electronics \& Communication Engineering \,|\, GPA: 3.6/4.0
+
+\end{document}
