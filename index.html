@@ -1,158 +1,228 @@
-\documentclass[10pt,letterpaper]{article}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naga Sai Sindhura Pandrangi | Data Engineer, Analyst and ML Engineer</title>
+<meta name="description" content="Portfolio of Naga Sai Sindhura Pandrangi: data pipelines on Snowflake and GCP, dbt, Airflow, BI dashboards, ML and LLM projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#16202c;--mute:#566474;--line:#d9dee5;--accent:#0b6b6f;--accent-soft:#dcefef;--hl:#2d3e8f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:Manrope,system-ui,sans-serif;line-height:1.2;margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;background:rgba(246,247,249,.95);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:22px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;font-weight:600}
+nav a{text-decoration:none;color:var(--ink)}
+nav a:hover{color:var(--accent)}
+header{padding:64px 0 36px}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+.role{font-family:Manrope,sans-serif;font-weight:700;font-size:1.2rem;color:var(--accent);margin:10px 0 18px}
+.lead{max-width:62ch;color:var(--mute);font-size:1.1rem}
+.pipe{display:flex;flex-wrap:wrap;gap:0;margin:34px 0 8px;font-family:Manrope,sans-serif;font-weight:700;font-size:.92rem}
+.pipe span{background:var(--panel);border:1px solid var(--line);padding:9px 14px;margin:0 -1px -1px 0}
+.pipe span:nth-child(3){background:var(--accent);color:#fff;border-color:var(--accent)}
+.pipe-note{color:var(--mute);font-size:.95rem;margin:6px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-block;padding:10px 18px;border:1.5px solid var(--ink);border-radius:6px;text-decoration:none;color:var(--ink);font-weight:600}
+.btn.primary{background:var(--ink);color:#fff}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:1.7rem;margin-bottom:22px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{font:600 .95rem "Source Sans 3",sans-serif;padding:7px 14px;border:1px solid var(--line);background:var(--panel);border-radius:20px;cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.proj{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:6px;padding:20px 22px;margin-bottom:16px}
+.proj[hidden]{display:none}
+.proj.ml{border-left-color:var(--hl)}
+.proj.an{border-left-color:#8a5a00}
+h3{font-size:1.2rem}
+.stack{color:var(--mute);font-size:.93rem;margin:4px 0 10px}
+.metric{display:inline-block;background:var(--accent-soft);color:#08484b;font-weight:600;font-size:.88rem;padding:2px 9px;border-radius:4px;margin:0 6px 10px 0}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:6px}
+.job{margin-bottom:28px}
+.job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px}
+.job-head b{font-family:Manrope,sans-serif}
+.when{color:var(--mute)}
+.skills dt{font-family:Manrope,sans-serif;font-weight:700;margin-top:12px}
+.skills dd{margin:2px 0 0;color:var(--mute)}
+footer{padding:30px 0 50px;color:var(--mute);border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav aria-label="Main"><div class="wrap">
+<a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+</div></nav>
 
-% ---------- ATS-friendly setup: single column, no tables, no icons, plain fonts ----------
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage[hidelinks]{hyperref}
+<header><div class="wrap">
+<h1>Naga Sai Sindhura Pandrangi</h1>
+<p class="role">Data Engineer, Data Analyst and ML Engineer</p>
+<p class="lead">I have 5+ years of experience building data pipelines and warehouses on Snowflake and GCP with dbt and Airflow, turning that data into dashboards in Power BI, Tableau and Looker Studio, and training and deploying ML and LLM systems on top of it.</p>
+<div class="pipe" aria-label="Typical pipeline flow"><span>Source systems</span><span>Airflow</span><span>dbt</span><span>Snowflake / BigQuery</span><span>Power BI / Tableau / Looker Studio</span></div>
+<p class="pipe-note">The flow most of my work follows, from raw data to a decision-ready report.</p>
+<div class="cta"><a class="btn primary" href="#projects">View projects</a><a class="btn" href="mailto:sindhura.naga98@gmail.com">Email me</a><a class="btn" href="https://linkedin.com/in/sindhurapandrangi">LinkedIn</a><a class="btn" href="https://github.com/NagaSaiSindhura">GitHub</a></div>
+</div></header>
 
-\pagestyle{empty}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
-\raggedbottom
-\setlist[itemize]{leftmargin=0.18in,itemsep=1.5pt,topsep=2pt,parsep=0pt,label=\textbullet}
+<section id="projects"><div class="wrap">
+<h2>Projects</h2>
+<div class="filters" role="group" aria-label="Filter projects">
+<button type="button" data-f="all" aria-pressed="true">All</button>
+<button type="button" data-f="de" aria-pressed="false">Data engineering</button>
+<button type="button" data-f="an" aria-pressed="false">Analytics and BI</button>
+<button type="button" data-f="ml" aria-pressed="false">ML and GenAI</button>
+</div>
 
-\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{-5pt}\rule{\linewidth}{0.5pt}]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
+<article class="proj ml" data-c="ml">
+<h3>AI Mock Interviewer for Data Analyst and Data Scientist Roles</h3>
+<p class="stack">LLM fine-tuning, RAG, React (Vercel), FastAPI, Docker, Hugging Face, GCP</p>
+<span class="metric">4,500+ Q&amp;A pairs</span><span class="metric">About 40% less memory</span>
+<ul>
+<li>Built Interview Prep, an AI mock interview platform using four fine-tuned LLMs trained on 4,500+ Q&amp;A pairs.</li>
+<li>Integrated RAG to generate personalized questions from a resume or job description, with real-time feedback on answers.</li>
+<li>Evaluated the models with BLEU, ROUGE, BERTScore, accuracy and hallucination metrics.</li>
+<li>Built a full-stack system: React frontend on Vercel, FastAPI backend in Docker on Hugging Face, and GCP data pipelines.</li>
+<li>Applied quantization for about 40% lower memory use and low-latency inference, with performance dashboards for interview preparation.</li>
+</ul></article>
 
-\newcommand{\role}[4]{%
-  \textbf{#1} \hfill \textbf{#3}\\
-  \textit{#2} \hfill \textit{#4}\vspace{1pt}
-}
+<article class="proj" data-c="de an">
+<h3>Automated ETL and KPI Dashboard on GCP</h3>
+<p class="stack">REST APIs, Google Cloud Storage, dbt, BigQuery, Apache Airflow, Power BI</p>
+<span class="metric">100K+ daily records</span><span class="metric">95%+ on-time delivery</span><span class="metric">10+ fact and dimension tables</span>
+<ul>
+<li>Designed an ETL pipeline for the New York Times dataset, extracting live and transactional data from REST APIs and storing raw files in Google Cloud Storage.</li>
+<li>Transformed the data with dbt into a star schema of 10+ fact and dimension tables in BigQuery for faster queries and reporting.</li>
+<li>Automated runs with Airflow DAGs, delivering data on time more than 95% of the time across refresh cycles.</li>
+<li>Published real-time Power BI dashboards connected to BigQuery, with auto-refresh and low-latency reporting for operational teams.</li>
+</ul></article>
 
-\begin{document}
+<article class="proj an" data-c="an">
+<h3>California Road Safety Dashboard</h3>
+<p class="stack">Power BI, Power Query, DAX, MySQL</p>
+<span class="metric">Slicers, drilldowns, time filters</span>
+<ul>
+<li>Cleaned, shaped and transformed California accident data from CSV files with Power Query.</li>
+<li>Built interactive dashboards showing accident trends by location, time, weather and severity.</li>
+<li>Wrote DAX measures and calculated columns for total accidents, average severity, accident frequency by county and time-of-day analysis.</li>
+<li>Connected Power BI to MySQL for scalable querying and dynamic report updates, so users can find high-risk zones and patterns.</li>
+</ul></article>
 
-% ---------- HEADER ----------
-\begin{center}
-  {\LARGE \textbf{Naga Sai Sindhura Pandrangi}}\\[2pt]
-  \textbf{Data Engineer \,|\, Data Analyst \,|\, Data Scientist / ML Engineer}\\[3pt]
-  Fremont, CA \,|\, (669) 260-0662 \,|\, \href{mailto:sindhura.naga98@gmail.com}{sindhura.naga98@gmail.com} \,|\,
-  \href{https://linkedin.com/in/sindhurapandrangi}{linkedin.com/in/sindhurapandrangi} \,|\,
-  \href{https://nagasaisindhura.github.io/}{nagasaisindhura.github.io}
-\end{center}
+<article class="proj ml" data-c="ml">
+<h3>Cricket Match Win Prediction</h3>
+<p class="stack">Python, Random Forest, XGBoost, Linear Regression, Flask, joblib, Plotly, Seaborn, Matplotlib</p>
+<span class="metric">91.6% accuracy</span><span class="metric">0.97 AUC</span><span class="metric">2,389 ODI matches</span>
+<ul>
+<li>Built an ML pipeline to predict ODI cricket match outcomes, outperforming traditional statistical models.</li>
+<li>Engineered features from 2,389 matches and ball-by-ball data (2001 to 2024, from Cricsheet.org), including runs left, balls left and wickets left.</li>
+<li>Deployed a Flask web app using joblib models, with forms for match data entry and instant predictions.</li>
+<li>Ran EDA with 10+ visualizations (correlation heatmaps, strike rate charts, player-of-the-match distributions) to make the model interpretable for stakeholders.</li>
+</ul></article>
 
-% ---------- SUMMARY ----------
-\section{Professional Summary}
-Data professional with 5+ years of experience across data engineering, analytics, and machine learning. Builds production
-ETL/ELT pipelines and dimensional models on \textbf{Snowflake}, \textbf{GCP (BigQuery, Cloud Storage)}, and SQL Server using
-\textbf{dbt}, \textbf{Apache Airflow}, Python, and SQL, and delivers KPI reporting in \textbf{Power BI}, \textbf{Tableau}, and
-\textbf{Looker Studio}. Hands-on with the ML lifecycle: feature engineering, model training and evaluation, \textbf{LLM fine-tuning},
-\textbf{RAG pipelines}, and \textbf{multi-agent systems}, with models deployed through FastAPI, Flask, and Docker.
+<article class="proj ml" data-c="ml">
+<h3>DeepFake Video Detection</h3>
+<p class="stack">PyTorch, XceptionNet, ResNet, BiLSTM, MTCNN, Meta DFDC dataset</p>
+<span class="metric">97.01% validation accuracy</span><span class="metric">0.988 ROC-AUC</span>
+<ul>
+<li>Developed a hybrid CNN-BiLSTM framework combining XceptionNet (with custom Swish residual blocks) and ResNet-Swish-BiLSTM.</li>
+<li>Built a frame pipeline using MTCNN to detect and crop faces to 224x224 and sample 10 frames per video, with consistent detection performance at lower compute.</li>
+<li>Reduced overfitting with Focal Loss for class imbalance, label smoothing, mixed-precision training and a CosineAnnealingWarmRestarts scheduler.</li>
+<li>Added attention to prioritize frames and validated real versus fake predictions with ROC-AUC.</li>
+</ul></article>
 
-% ---------- TECHNICAL SKILLS ----------
-\section{Technical Skills}
-\begin{itemize}[label={},leftmargin=0pt,itemsep=1pt]
-  \item \textbf{Data Warehousing:} Snowflake, Google BigQuery, MS SQL Server, MySQL
-  \item \textbf{ETL/ELT \& Transformation:} dbt (Core \& Cloud), Jinja Macros, Incremental Models, dbt Tests, ETL/ELT Pipeline Design, Star Schema \& Dimensional Modeling
-  \item \textbf{Orchestration:} Apache Airflow (DAG design, scheduling, monitoring, alerting), Cloud Composer
-  \item \textbf{Cloud (GCP):} BigQuery, Google Cloud Storage, Cloud Composer, REST API Ingestion
-  \item \textbf{Visualization \& BI:} Power BI (DAX, Power Query), Tableau, Looker Studio
-  \item \textbf{Languages:} Python (Pandas, NumPy, Scikit-learn), SQL (CTEs, window functions, query optimization), Bash
-  \item \textbf{Analytics:} KPI Design, Exploratory Data Analysis, Data Cleaning, Data Validation, Plotly, Seaborn, Matplotlib
-  \item \textbf{Machine Learning:} Random Forest, XGBoost, Regression, Feature Engineering, PyTorch, CNN/BiLSTM, Model Evaluation (Accuracy, ROC-AUC, BLEU, ROUGE, BERTScore)
-  \item \textbf{GenAI:} RAG Pipelines, LLM Fine-Tuning, Hugging Face Transformers, Multi-Agent Systems, Vector Search, Prompt Engineering, Quantization
-  \item \textbf{DevOps \& Tools:} Git, GitHub/GitLab, CI/CD, Docker, FastAPI, Flask, Streamlit, Jira, Confluence
-\end{itemize}
+<article class="proj ml" data-c="ml">
+<h3>Full-Stack Agentic Framework for Natural Language to SQL</h3>
+<p class="stack">Hugging Face LLM, Spider dataset, Streamlit, Plotly</p>
+<span class="metric">BLEU 0.38 to 0.52</span>
+<ul>
+<li>Built a Streamlit interface where non-technical users generate SQL, inspect results and explore the schema.</li>
+<li>Fine-tuned a Hugging Face LLM on Spider, improving BLEU from 0.3825 to 0.5158, with Exact Match and SQL accuracy of 0.24.</li>
+<li>Added follow-up questions that detect vague queries and produce more precise SQL.</li>
+<li>Set up CPU inference for the 8B-parameter model to lower latency and cost, with Plotly charts for dynamic visualization.</li>
+</ul></article>
 
-% ---------- EXPERIENCE ----------
-\section{Professional Experience}
+<article class="proj" data-c="de ml">
+<h3>Smart Book Recommendation System</h3>
+<p class="stack">Hadoop MapReduce, PySpark, ALS, TF-IDF, Flask, Plotly</p>
+<span class="metric">5GB+ data</span><span class="metric">24% larger user basket</span><span class="metric">60% lower preprocessing latency</span>
+<ul>
+<li>Processed 5GB+ of data with Hadoop MapReduce for distributed cleansing and transformation on commodity clusters.</li>
+<li>Built a hybrid recommender combining collaborative filtering (ALS) with content-based filtering (TF-IDF, cosine similarity), reaching MSE under 0.7 and a 24% increase in average user basket size.</li>
+<li>Used PySpark for real-time transformations, cutting preprocessing latency by 60% against single-threaded pipelines.</li>
+<li>Created a Plotly dashboard with heatmaps and behavior clustering, and a Flask app that returns recommendations by user interest and book similarity.</li>
+</ul></article>
+</div></section>
 
-\role{AI/ML Engineer}{Referu.ai}{Feb 2026 -- Present}{Remote}
-\begin{itemize}
-  \item Built and fine-tuned domain-specific LLMs on curated intake data, improving response relevance and grounding for a multi-agent AI platform serving users across multiple jurisdictions.
-  \item Designed and deployed end-to-end \textbf{RAG pipelines} covering document ingestion, chunking, embedding generation, vector indexing, and retrieval re-ranking, so agents answer from verified, jurisdiction-specific sources.
-  \item Developed \textbf{multi-agent workflows} in which specialized agents handle intake, retrieval, reasoning, and compliance checks, using tool calling and structured outputs.
-  \item Trained and evaluated models using supervised fine-tuning and prompt optimization, tracking groundedness, accuracy, and hallucination rates to guide each iteration.
-  \item Added automated evaluation, testing, and monitoring to the model pipeline, cutting non-compliant model outputs by \textbf{27\%}.
-  \item Analyzed retrieval and intake data to identify failure patterns, then fixed chunking and retrieval logic, improving grounded-response accuracy in production.
-\end{itemize}
+<section id="experience"><div class="wrap">
+<h2>Experience</h2>
 
-\vspace{4pt}
-\role{Data Engineer}{MMP Insulators}{Sep 2024 -- Jul 2025}{Remote}
-\begin{itemize}
-  \item Built \textbf{Apache Airflow} DAGs to ingest sales, inventory, and CRM data from 5+ regional systems into \textbf{BigQuery on GCP}, cutting manual data collection effort by \textbf{35\%}.
-  \item Modeled a star schema in BigQuery using \textbf{dbt} (staging, intermediate, and mart layers) and optimized SQL transformations, reducing dashboard query time by \textbf{30\%} and reporting errors by \textbf{20\%}.
-  \item Wrote dbt tests and documentation for key models, catching data issues before they reached reports and improving trust in the numbers.
-  \item Built and maintained \textbf{15+ Tableau dashboards} on the warehouse, giving leadership real-time visibility into regional and product-level sales trends.
-  \item Partnered with sales and operations stakeholders to define KPIs and reporting requirements, and managed code through Git with peer review in an Agile team using Jira.
-\end{itemize}
+<div class="job"><div class="job-head"><b>AI/ML Engineer, Referu.ai</b><span class="when">Feb 2026 to Present, Remote</span></div>
+<ul>
+<li>Built and fine-tuned domain-specific LLMs and RAG pipelines (ingestion, chunking, embeddings, vector search, re-ranking) for a multi-agent platform serving multiple jurisdictions.</li>
+<li>Developed multi-agent workflows for intake, retrieval, reasoning and compliance checks.</li>
+<li>Added automated testing and monitoring that cut non-compliant model outputs by 27%, and fixed retrieval failure patterns to improve grounded-response accuracy.</li>
+</ul></div>
 
-\vspace{4pt}
-\role{Data Engineer}{S\&P Global}{Aug 2022 -- Aug 2023}{Remote}
-\begin{itemize}
-  \item Built Python and SQL ETL pipelines loading structured and unstructured financial data from multiple source systems into \textbf{Snowflake}, raising data integrity to \textbf{99.5\%} and improving data quality by \textbf{25\%}.
-  \item Modeled dimensional schemas (facts and dimensions) in Snowflake using \textbf{dbt}, with reusable Jinja macros, incremental models, and automated tests for consistent, auditable transformations.
-  \item Orchestrated daily and intraday loads with \textbf{Apache Airflow}, adding dependency management, retries, and failure alerts to keep financial datasets fresh and reliable.
-  \item Tuned Snowflake workloads through warehouse sizing, clustering, and query rewrites, improving query performance for downstream analysts.
-  \item Built \textbf{10+ Power BI dashboards} with DAX measures for financial KPIs, cutting stakeholder reporting turnaround by \textbf{20\%}.
-  \item Documented data lineage, mappings, and business rules to support audits and onboarding of new team members.
-\end{itemize}
+<div class="job"><div class="job-head"><b>Data Engineer, MMP Insulators</b><span class="when">Sep 2024 to Jul 2025, Remote</span></div>
+<ul>
+<li>Built Airflow DAGs ingesting sales, inventory and CRM data from 5+ regional systems into BigQuery, cutting manual collection effort by 35%.</li>
+<li>Modeled a star schema with dbt and optimized SQL, reducing dashboard query time by 30% and reporting errors by 20%.</li>
+<li>Built and maintained 15+ Tableau dashboards giving leadership real-time regional and product sales visibility.</li>
+</ul></div>
 
-\vspace{4pt}
-\role{Data Engineer -- DaVita Kidney Care Project}{Tata Consultancy Services (TCS)}{Jun 2019 -- Jul 2022}{India}
-\begin{itemize}
-  \item Built and maintained \textbf{Apache Airflow}-orchestrated ETL pipelines on \textbf{GCP} that ingested patient and treatment data from multiple clinical source systems into a \textbf{BigQuery} warehouse.
-  \item Designed fact and dimension tables in BigQuery with partitioning and clustering, supporting clinical and operational reporting at scale.
-  \item Added Airflow monitoring, SLAs, and alerting that cut incident response time by \textbf{50\%}, and refactored data jobs to reduce pipeline runtime by \textbf{40\%}.
-  \item Wrote complex SQL (CTEs, window functions, aggregations) for transformation, reconciliation, and data validation, ensuring accuracy of healthcare data handled under strict compliance requirements.
-  \item Supported downstream reporting in \textbf{Power BI}, working with business analysts to translate requirements into reliable, query-ready data models.
-  \item Followed Git-based version control, code reviews, and release processes in an Agile delivery model.
-\end{itemize}
+<div class="job"><div class="job-head"><b>Data Engineer, S&amp;P Global</b><span class="when">Aug 2022 to Aug 2023, Remote</span></div>
+<ul>
+<li>Built Python and SQL ETL pipelines loading structured and unstructured financial data into Snowflake, raising data integrity to 99.5% and data quality by 25%.</li>
+<li>Modeled dimensional schemas in Snowflake with dbt (macros, incremental models, tests) and orchestrated loads with Airflow.</li>
+<li>Built 10+ Power BI dashboards with DAX KPIs, cutting stakeholder reporting turnaround by 20%.</li>
+</ul></div>
 
-% ---------- PROJECTS ----------
-\section{Projects}
+<div class="job"><div class="job-head"><b>Data Engineer, Tata Consultancy Services (DaVita Kidney Care)</b><span class="when">Jun 2019 to Jul 2022, India</span></div>
+<ul>
+<li>Built Airflow-orchestrated ETL pipelines on GCP, loading patient and treatment data from multiple clinical systems into a BigQuery warehouse with fact and dimension tables.</li>
+<li>Added Airflow monitoring and alerting that cut incident response time by 50%, and refactored jobs to cut pipeline runtime by 40%.</li>
+<li>Supported clinical and operational reporting in Power BI.</li>
+</ul></div>
+</div></section>
 
-\textbf{AI Mock Interviewer for Data Roles (LLMs \& RAG)} \hfill \textit{Hugging Face, RAG, FastAPI, Docker, GCP, Looker Studio}\\
-\begin{itemize}
-  \item Fine-tuned four LLMs on \textbf{4,500+ Q\&A pairs} and built a \textbf{RAG pipeline} that generates personalized interview questions from resumes and job descriptions, with real-time feedback.
-  \item Evaluated models with BLEU, ROUGE, BERTScore, accuracy, and hallucination metrics; applied quantization for approximately \textbf{40\% lower memory use} and low-latency inference.
-  \item Built \textbf{Looker Studio} performance dashboards on GCP data pipelines, and shipped a full-stack app with a React frontend (Vercel) and FastAPI backend (Docker).
-\end{itemize}
+<section id="skills"><div class="wrap">
+<h2>Skills</h2>
+<dl class="skills">
+<dt>Data engineering</dt><dd>Snowflake, BigQuery, MS SQL Server, MySQL, dbt, Apache Airflow, Cloud Composer, Google Cloud Storage, star schema and dimensional modeling</dd>
+<dt>Analytics and BI</dt><dd>Power BI (DAX, Power Query), Tableau, Looker Studio, KPI design, EDA, SQL (CTEs, window functions)</dd>
+<dt>Machine learning and GenAI</dt><dd>Python, Scikit-learn, XGBoost, PyTorch, Hugging Face, RAG, LLM fine-tuning, multi-agent systems, model evaluation</dd>
+<dt>Tools</dt><dd>Git, Docker, FastAPI, Flask, Streamlit, CI/CD, Jira</dd>
+</dl>
+</div></section>
 
-\vspace{3pt}
-\textbf{Automated ETL \& KPI Dashboard on GCP} \hfill \textit{Airflow, dbt, BigQuery, GCS, Power BI}\\
-\begin{itemize}
-  \item Designed an ETL pipeline processing \textbf{100K+ daily records} from the New York Times REST APIs, landing raw data in Google Cloud Storage and transforming it with \textbf{dbt} into analytics-ready models.
-  \item Built a star schema with \textbf{10+ fact and dimension tables} in BigQuery for faster querying and optimized reporting.
-  \item Automated runs with \textbf{Airflow DAGs}, achieving \textbf{95\%+ on-time data delivery}, and published auto-refreshing \textbf{Power BI} KPI dashboards connected directly to BigQuery.
-\end{itemize}
+<section id="education"><div class="wrap">
+<h2>Education</h2>
+<p><b>MS in Applied Data Intelligence</b>, San Jose State University, 2024 to 2025, GPA 3.8/4.0<br>
+<b>B.Tech in Electronics and Communication Engineering</b>, JNTUH, India, 2015 to 2019, GPA 3.6/4.0</p>
+</div></section>
 
-\vspace{3pt}
-\textbf{Cricket Match Win Prediction} \hfill \textit{Python, Scikit-learn, XGBoost, Flask, Plotly}\\
-\begin{itemize}
-  \item Engineered features (runs left, balls left, wickets left) from \textbf{2,389 ODI matches} (2001--2024) and trained Random Forest, XGBoost, and Linear Regression models, reaching up to \textbf{91.6\% accuracy and 0.97 AUC}.
-  \item Deployed the model in a Flask web app for real-time win prediction, and produced 10+ EDA visualizations (Plotly, Seaborn, Matplotlib) to explain model behavior to stakeholders.
-\end{itemize}
+<footer id="contact"><div class="wrap">
+<h2>Contact</h2>
+<p>Fremont, CA &middot; <a href="mailto:sindhura.naga98@gmail.com">sindhura.naga98@gmail.com</a> &middot; (669) 260-0662<br>
+<a href="https://linkedin.com/in/sindhurapandrangi">LinkedIn</a> &middot; <a href="https://github.com/NagaSaiSindhura">GitHub</a></p>
+</div></footer>
 
-\vspace{3pt}
-\textbf{DeepFake Video Detection} \hfill \textit{PyTorch, CNN-BiLSTM, MTCNN, Deep Learning}\\
-\begin{itemize}
-  \item Developed a hybrid CNN-BiLSTM model (XceptionNet and ResNet-Swish-BiLSTM) achieving \textbf{97.01\% validation accuracy and 0.988 ROC-AUC} on the Meta DFDC dataset.
-  \item Built an MTCNN frame-extraction pipeline sampling 10 frames per video, and reduced overfitting with Focal Loss, label smoothing, mixed-precision training, and cosine annealing with warm restarts.
-\end{itemize}
-
-\vspace{3pt}
-\textbf{Agentic Natural Language to SQL Translation} \hfill \textit{Hugging Face, Streamlit, Plotly, SQL}\\
-\begin{itemize}
-  \item Fine-tuned a Hugging Face LLM on the Spider dataset, improving BLEU from \textbf{0.38 to 0.52}, with an agent that asks follow-up questions to resolve vague queries before generating SQL.
-  \item Built a Streamlit interface for schema exploration, query generation, and Plotly visualization for non-technical users.
-\end{itemize}
-
-\vspace{3pt}
-\textbf{California Road Safety Dashboard} \hfill \textit{Power BI, Power Query, DAX, MySQL}\\
-\begin{itemize}
-  \item Cleaned and modeled California accident data with Power Query and built interactive \textbf{Power BI} dashboards (slicers, drilldowns, time filters) on a MySQL source.
-  \item Created DAX measures for KPIs such as accident frequency by county, average severity, and time-of-day trends, helping users identify high-risk zones.
-\end{itemize}
-
-% ---------- EDUCATION ----------
-\section{Education}
-\textbf{San Jose State University}, San Jose, CA \hfill Jan 2024 -- Dec 2025\\
-Master of Science in Applied Data Intelligence \,|\, GPA: 3.8/4.0\\[3pt]
-\textbf{Jawaharlal Nehru Technological University Hyderabad (JNTUH)}, India \hfill May 2015 -- May 2019\\
-Bachelor of Technology in Electronics \& Communication Engineering \,|\, GPA: 3.6/4.0
-
-\end{document}
+<script>
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    document.querySelectorAll('.proj').forEach(function(p){
+      p.hidden=!(f==='all'||p.dataset.c.split(' ').indexOf(f)>-1);
+    });
+  });
+});
+</script>
+</body>
+</html>
